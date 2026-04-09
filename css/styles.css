@@ -941,11 +941,35 @@ input, textarea, select {
 /* ════════════════════════════════════════════════
    PRECIOS
 ════════════════════════════════════════════════ */
+.pricing-category {
+  margin-bottom: var(--space-2xl);
+}
+
+.pricing-category-title {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ocean-light);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-xs);
+  border-bottom: 2px solid var(--light-gray);
+}
+
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-md);
   margin-bottom: var(--space-md);
+}
+
+.pricing-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 720px;
 }
 
 .pricing-card {
