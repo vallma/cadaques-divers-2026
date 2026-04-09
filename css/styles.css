@@ -403,13 +403,21 @@ input, textarea, select {
 .hero-bg {
   position: absolute;
   inset: 0;
+  background-image: url('../img/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
   background: linear-gradient(
     160deg,
-    var(--ocean-deep) 0%,
-    #0a2a5e 35%,
-    #0e4d7a 60%,
-    #0d6e8a 80%,
-    #1a8a9a 100%
+    rgba(4, 13, 26, 0.75) 0%,
+    rgba(10, 42, 94, 0.65) 50%,
+    rgba(13, 110, 138, 0.5) 100%
   );
 }
 
@@ -814,6 +822,26 @@ input, textarea, select {
   font-size: 2.5rem;
   color: var(--ocean-teal);
   margin: 0 auto var(--space-lg);
+}
+
+.visual-photo {
+  width: calc(100% + var(--space-xl) * 2);
+  margin: calc(-1 * var(--space-xl)) calc(-1 * var(--space-xl)) var(--space-lg);
+  border-radius: var(--radius-xl) var(--radius-xl) var(--radius-md) var(--radius-md);
+  overflow: hidden;
+  height: 220px;
+}
+
+.visual-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.visual-card:hover .visual-photo img {
+  transform: scale(1.04);
 }
 
 .visual-details {
