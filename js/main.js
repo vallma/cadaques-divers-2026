@@ -197,6 +197,145 @@
   }
 })();
 
+// ── Mapa de Puntos de Buceo ───────────────────────
+(function initDivingMap() {
+  const mapEl = document.getElementById('diving-map');
+  if (!mapEl) return;
+
+  const DIFFICULTY_LABEL = {
+    beginner:     '🟢 Principiante',
+    intermediate: '🟡 Intermedio',
+    advanced:     '🔴 Avanzado',
+  };
+
+  const map = L.map('diving-map', {
+    center: [42.288, 3.278],
+    zoom: 13,
+    scrollWheelZoom: false,
+  });
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors',
+    maxZoom: 18,
+  }).addTo(map);
+
+  const markerIcon = L.divIcon({
+    className: '',
+    html: '<div class="spot-marker"><i class="fas fa-circle-dot"></i></div>',
+    iconSize: [36, 36],
+    iconAnchor: [18, 18],
+  });
+
+  const markerIconActive = L.divIcon({
+    className: '',
+    html: '<div class="spot-marker spot-marker-active"><i class="fas fa-circle-dot"></i></div>',
+    iconSize: [42, 42],
+    iconAnchor: [21, 21],
+  });
+
+  let markers = [];
+  let activeMarker = null;
+
+  function showSpotDetail(spot) {
+    const detail   = document.getElementById('spot-detail');
+    const listEl   = document.getElementById('spots-list');
+    const loading  = document.getElementById('spots-loading');
+
+    loading.classList.add('hidden');
+    listEl.classList.remove('hidden');
+    detail.classList.remove('hidden');
+
+    document.getElementById('spot-name').textContent = spot.name;
+    document.getElementById('spot-description').textContent = spot.description;
+    document.getElementById('spot-difficulty').textContent = DIFFICULTY_LABEL[spot.difficulty] ?? spot.difficulty;
+    document.getElementById('spot-depth').textContent = `⬇️ ${spot.depth}m`;
+
+    const gallery = document.getElementById('spot-gallery');
+    gallery.innerHTML = '';
+    if (spot.photos && spot.photos.length > 0) {
+      spot.photos.forEach(photo => {
+        const img = document.createElement('img');
+        img.src = photo.url;
+        img.alt = photo.caption ?? spot.name;
+        img.className = 'spot-photo';
+        img.loading = 'lazy';
+        gallery.appendChild(img);
+      });
+    } else {
+      gallery.innerHTML = '<p class="spot-no-photos">Sin fotos todavía</p>';
+    }
+
+    // Update spot list active state
+    document.querySelectorAll('.spot-list-item').forEach(el => {
+      el.classList.toggle('active', el.dataset.id === spot.id);
+    });
+  }
+
+  function renderSpotList(spots) {
+    const listEl  = document.getElementById('spots-list');
+    const loading = document.getElementById('spots-loading');
+    loading.classList.add('hidden');
+    listEl.classList.remove('hidden');
+
+    listEl.innerHTML = '';
+    spots.forEach(spot => {
+      const item = document.createElement('div');
+      item.className = 'spot-list-item';
+      item.dataset.id = spot.id;
+      item.innerHTML = `
+        <span class="spot-list-name">${spot.name}</span>
+        <span class="spot-list-meta">${DIFFICULTY_LABEL[spot.difficulty] ?? ''} · ${spot.depth}m</span>
+      `;
+      item.addEventListener('click', () => {
+        map.setView([spot.latitude, spot.longitude], 15, { animate: true });
+        selectMarker(spot);
+      });
+      listEl.appendChild(item);
+    });
+  }
+
+  function selectMarker(spot) {
+    if (activeMarker) {
+      activeMarker.setIcon(markerIcon);
+    }
+    const found = markers.find(m => m.spotId === spot.id);
+    if (found) {
+      found.marker.setIcon(markerIconActive);
+      activeMarker = found.marker;
+    }
+    showSpotDetail(spot);
+  }
+
+  fetch(`${window.BACKEND_URL}/api/diving-spots`)
+    .then(r => r.json())
+    .then(({ spots }) => {
+      if (!spots || spots.length === 0) {
+        document.getElementById('spots-loading').innerHTML =
+          '<div class="spots-empty-icon">📍</div><p>Próximamente</p>';
+        return;
+      }
+
+      spots.forEach(spot => {
+        const marker = L.marker([spot.latitude, spot.longitude], { icon: markerIcon }).addTo(map);
+        marker.bindTooltip(spot.name, { permanent: false, direction: 'top' });
+        marker.on('click', () => {
+          map.setView([spot.latitude, spot.longitude], 15, { animate: true });
+          selectMarker(spot);
+        });
+        markers.push({ spotId: spot.id, marker });
+      });
+
+      renderSpotList(spots);
+
+      // Auto-select the first spot
+      selectMarker(spots[0]);
+    })
+    .catch(() => {
+      document.getElementById('spots-loading').innerHTML =
+        '<div class="spots-empty-icon">⚠️</div><p>No se pudo cargar el mapa</p>';
+    });
+})();
+
 // ── Pricing card hover depth ─────────────────────
 (function initCardDepth() {
   document.querySelectorAll('.pricing-card, .quick-card, .course-card').forEach(card => {

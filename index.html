@@ -15,6 +15,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script>
+    // ── Configuración API ─────────────────────────────
+    // Cambia esta URL por la URL de tu backend en producción
+    window.BACKEND_URL = 'https://cadaquesdivers-reservas.vercel.app';
+  </script>
 </head>
 <body>
 
@@ -33,6 +39,7 @@
         <li><a href="#inmersiones" class="nav-link">Inmersiones</a></li>
         <li><a href="#precios" class="nav-link">Precios</a></li>
         <li><a href="#entorno" class="nav-link">Entorno</a></li>
+        <li><a href="#puntos-buceo" class="nav-link">Puntos de Buceo</a></li>
         <li><a href="#sostenible" class="nav-link">Turismo Sostenible</a></li>
         <li><a href="#contacto" class="nav-link">Contacto</a></li>
       </ul>
@@ -607,6 +614,43 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════
+       PUNTOS DE BUCEO
+  ═══════════════════════════════════════════════════ -->
+  <section class="section section-alt" id="puntos-buceo">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Explorar</span>
+        <h2 class="section-title">Puntos de Buceo</h2>
+        <p class="section-subtitle">
+          Descubre los mejores fondos del Parque Natural Cap de Creus. Haz clic en cada punto del mapa para ver fotos y detalles.
+        </p>
+      </div>
+
+      <div class="spots-layout reveal">
+        <div id="diving-map"></div>
+        <div class="spots-panel">
+          <div id="spots-loading" class="spots-empty">
+            <div class="spots-empty-icon">🌊</div>
+            <p>Cargando puntos…</p>
+          </div>
+          <div id="spot-detail" class="spot-detail hidden">
+            <div class="spot-detail-header">
+              <h3 id="spot-name"></h3>
+              <div class="spot-badges">
+                <span id="spot-difficulty" class="spot-badge"></span>
+                <span id="spot-depth" class="spot-badge spot-badge-depth"></span>
+              </div>
+            </div>
+            <p id="spot-description" class="spot-description"></p>
+            <div id="spot-gallery" class="spot-gallery"></div>
+          </div>
+          <div id="spots-list" class="spots-list hidden"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
        TURISMO SOSTENIBLE
   ═══════════════════════════════════════════════════ -->
   <section class="section section-dark" id="sostenible">
@@ -829,6 +873,7 @@
     </div>
   </footer>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
