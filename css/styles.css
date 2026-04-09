@@ -288,6 +288,17 @@ input, textarea, select {
   letter-spacing: 0.01em;
 }
 
+.nav-logo-img {
+  height: 48px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  transition: opacity 0.2s ease;
+}
+
+.nav-logo-img:hover {
+  opacity: 0.85;
+}
+
 .nav-logo strong {
   font-weight: 800;
 }
