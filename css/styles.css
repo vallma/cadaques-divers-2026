@@ -869,8 +869,8 @@ input, textarea, select {
   align-items: center;
   gap: 0.4rem;
   padding: 0.35rem 0.875rem;
-  background: rgba(21, 101, 192, 0.08);
-  color: var(--ocean-blue);
+  background: #f59e0b;
+  color: #fff;
   border-radius: var(--radius-full);
   font-size: 0.8rem;
   font-weight: 700;
