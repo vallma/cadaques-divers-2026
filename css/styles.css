@@ -876,6 +876,30 @@ input, textarea, select {
   transform: scale(1.04);
 }
 
+.visual-photo-double {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  height: 220px;
+}
+
+.visual-photo-double .photo-main,
+.visual-photo-double .photo-secondary {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.visual-photo-double .photo-main {
+  border-radius: 0;
+}
+
+.visual-card:hover .visual-photo-double img {
+  transform: scale(1.04);
+}
+
 .visual-details {
   display: flex;
   flex-direction: column;
