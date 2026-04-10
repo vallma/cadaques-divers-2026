@@ -477,6 +477,12 @@ input, textarea, select {
   animation: bubble-rise linear infinite;
 }
 
+/* Burbujas doradas — sutiles toques de amarillo */
+.bubble.gold {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.18);
+}
+
 .bubble:nth-child(1) { width: 40px; height: 40px; left: 10%; animation-duration: 8s; animation-delay: 0s; }
 .bubble:nth-child(2) { width: 20px; height: 20px; left: 20%; animation-duration: 6s; animation-delay: 1s; }
 .bubble:nth-child(3) { width: 60px; height: 60px; left: 35%; animation-duration: 10s; animation-delay: 2s; }
@@ -485,6 +491,70 @@ input, textarea, select {
 .bubble:nth-child(6) { width: 50px; height: 50px; left: 75%; animation-duration: 11s; animation-delay: 1.5s; }
 .bubble:nth-child(7) { width: 25px; height: 25px; left: 85%; animation-duration: 8s; animation-delay: 4s; }
 .bubble:nth-child(8) { width: 35px; height: 35px; left: 90%; animation-duration: 6s; animation-delay: 2.5s; }
+
+/* ── Decoraciones flotantes (burbujas + botella) ──────── */
+.deco-float {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Micro-burbujas doradas en secciones */
+.deco-bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(245, 158, 11, 0.07);
+  border: 1px solid rgba(245, 158, 11, 0.15);
+  animation: bubble-rise linear infinite;
+}
+
+/* Botella de submarinismo — SVG inline en CSS */
+.deco-tank {
+  position: absolute;
+  opacity: 0.045;
+  animation: tank-float ease-in-out infinite;
+}
+
+.deco-tank svg {
+  fill: #f59e0b;
+}
+
+@keyframes tank-float {
+  0%, 100% { transform: translateY(0px) rotate(-8deg); }
+  50%       { transform: translateY(-12px) rotate(-8deg); }
+}
+
+/* Posiciones fijas para cada sección */
+.deco-tank.t1 { width: 48px; bottom: 12%; right: 5%;  animation-duration: 7s; animation-delay: 0s; }
+.deco-tank.t2 { width: 36px; top: 15%;    left: 3%;   animation-duration: 9s; animation-delay: 2s; transform: rotate(20deg); }
+.deco-tank.t3 { width: 42px; bottom: 20%; left: 6%;   animation-duration: 8s; animation-delay: 1s; transform: rotate(-15deg); }
+.deco-tank.t4 { width: 30px; top: 20%;    right: 4%;  animation-duration: 10s; animation-delay: 3s; transform: rotate(10deg); }
+
+.deco-bubble.b1 { width: 8px;  height: 8px;  bottom: 30%; right: 9%;  animation-duration: 6s;  animation-delay: 0s; }
+.deco-bubble.b2 { width: 5px;  height: 5px;  bottom: 20%; right: 12%; animation-duration: 8s;  animation-delay: 1s; }
+.deco-bubble.b3 { width: 6px;  height: 6px;  bottom: 15%; right: 7%;  animation-duration: 7s;  animation-delay: 2s; }
+.deco-bubble.b4 { width: 9px;  height: 9px;  bottom: 40%; left: 7%;   animation-duration: 9s;  animation-delay: 0.5s; }
+.deco-bubble.b5 { width: 5px;  height: 5px;  bottom: 25%; left: 10%;  animation-duration: 6s;  animation-delay: 2.5s; }
+.deco-bubble.b6 { width: 7px;  height: 7px;  bottom: 10%; left: 5%;   animation-duration: 11s; animation-delay: 1s; }
+
+/* Highlight dorado en section-tag */
+.section-tag {
+  position: relative;
+}
+.section-tag::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -18px;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f59e0b;
+  opacity: 0.7;
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.5);
+}
 
 @keyframes bubble-rise {
   0% {
