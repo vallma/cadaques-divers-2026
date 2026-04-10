@@ -515,10 +515,17 @@ input, textarea, select {
 
 .deco-tank svg { display: block; }
 
-.deco-tank.t1 { width: 62px; bottom: 10%; right: 4%;  transform: rotate(-6deg); }
-.deco-tank.t2 { width: 48px; top: 12%;   left: 3%;   transform: rotate(18deg); }
-.deco-tank.t3 { width: 56px; bottom: 18%; left: 5%;  transform: rotate(-14deg); }
-.deco-tank.t4 { width: 42px; top: 18%;   right: 3%;  transform: rotate(12deg); }
+.deco-tank { animation: tank-float ease-in-out infinite; }
+
+@keyframes tank-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+.deco-tank.t1 { width: 62px; bottom: 10%; right: 4%;  rotate: -6deg;  animation-duration: 7s; }
+.deco-tank.t2 { width: 48px; top: 12%;   left: 3%;   rotate: 18deg;  animation-duration: 9s; animation-delay: 1.5s; }
+.deco-tank.t3 { width: 56px; bottom: 18%; left: 5%;  rotate: -14deg; animation-duration: 8s; animation-delay: 0.8s; }
+.deco-tank.t4 { width: 42px; top: 18%;   right: 3%;  rotate: 12deg;  animation-duration: 10s; animation-delay: 2s; }
 
 /* Highlight dorado en section-tag */
 .section-tag {
