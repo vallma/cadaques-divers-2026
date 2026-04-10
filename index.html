@@ -14,6 +14,7 @@
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
+  <link rel="icon" href="logo.png" type="image/png" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script>
@@ -34,19 +35,26 @@
       </a>
 
       <ul class="nav-links" id="navLinks">
-        <li><a href="#inicio" class="nav-link active">Inicio</a></li>
-        <li><a href="#inmersiones" class="nav-link">Inmersiones</a></li>
-        <li><a href="#precios" class="nav-link">Precios</a></li>
-        <li><a href="#entorno" class="nav-link">Entorno</a></li>
-        <li><a href="#puntos-buceo" class="nav-link">Puntos de Buceo</a></li>
-        <li><a href="#sostenible" class="nav-link">Turismo Sostenible</a></li>
-        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        <li><a href="#inicio" class="nav-link active" data-i18n="nav.inicio">Inicio</a></li>
+        <li><a href="#inmersiones" class="nav-link" data-i18n="nav.inmersiones">Inmersiones</a></li>
+        <li><a href="#precios" class="nav-link" data-i18n="nav.precios">Precios</a></li>
+        <li><a href="#entorno" class="nav-link" data-i18n="nav.entorno">Entorno</a></li>
+        <li><a href="#puntos-buceo" class="nav-link" data-i18n="nav.puntos">Puntos de Buceo</a></li>
+        <li><a href="#sostenible" class="nav-link" data-i18n="nav.sostenible">Turismo Sostenible</a></li>
+        <li><a href="#contacto" class="nav-link" data-i18n="nav.contacto">Contacto</a></li>
       </ul>
 
       <div class="nav-actions">
+        <!-- Language switcher -->
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+        </div>
+
         <a href="https://wa.me/34605336158" target="_blank" rel="noopener" class="btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
-          <span>Reservar</span>
+          <span data-i18n="nav.reservar">Reservar</span>
         </a>
         <button class="nav-toggle" id="navToggle" aria-label="Menú">
           <span></span>
@@ -78,39 +86,39 @@
     <div class="hero-content">
       <div class="hero-badge reveal">
         <i class="fas fa-star"></i>
-        PADI 5 Star Dive Center
+        <span data-i18n="hero.badge">PADI 5 Star Dive Center</span>
       </div>
       <h1 class="hero-title reveal">
-        Let's explore<br />
-        <span class="hero-title-highlight">the sea</span>
+        <span data-i18n="hero.title1">Let's explore</span><br />
+        <span class="hero-title-highlight" data-i18n="hero.title2">the sea</span>
       </h1>
-      <p class="hero-subtitle reveal">
+      <p class="hero-subtitle reveal" data-i18n="hero.subtitle" data-i18n-html>
         Sumérgete en el Parque Natural Cap de Creus.<br />
         Cadaqués, Costa Brava.
       </p>
       <div class="hero-ctas reveal">
         <a href="#inmersiones" class="btn btn-primary">
           <i class="fas fa-diving-mask"></i>
-          Explorar inmersiones
+          <span data-i18n="hero.cta1">Explorar inmersiones</span>
         </a>
-        <a href="#precios" class="btn btn-outline">
+        <a href="#precios" class="btn btn-outline" data-i18n="hero.cta2">
           Ver precios
         </a>
       </div>
       <div class="hero-stats reveal">
         <div class="stat">
           <span class="stat-number">PADI</span>
-          <span class="stat-label">5 Estrellas</span>
+          <span class="stat-label" data-i18n="hero.stat1label">5 Estrellas</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat">
           <span class="stat-number">Cap de Creus</span>
-          <span class="stat-label">Parque Natural</span>
+          <span class="stat-label" data-i18n="hero.stat2label">Parque Natural</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat">
           <span class="stat-number">CRESSI</span>
-          <span class="stat-label">Equipo Premium</span>
+          <span class="stat-label" data-i18n="hero.stat3label">Equipo Premium</span>
         </div>
       </div>
     </div>
@@ -127,36 +135,28 @@
     <div class="container">
       <div class="quick-grid">
         <div class="quick-card reveal">
-          <div class="quick-icon">
-            <i class="fas fa-user-plus"></i>
-          </div>
-          <h3>Bautizo de Buceo</h3>
-          <p>Sin certificación previa. Vive tu primera inmersión con total seguridad.</p>
-          <a href="#precios" class="quick-link">Ver precio <i class="fas fa-arrow-right"></i></a>
+          <div class="quick-icon"><i class="fas fa-user-plus"></i></div>
+          <h3 data-i18n="qs.bautizo.title">Bautizo de Buceo</h3>
+          <p data-i18n="qs.bautizo.desc">Sin certificación previa. Vive tu primera inmersión con total seguridad.</p>
+          <a href="#precios" class="quick-link"><span data-i18n="qs.bautizo.link">Ver precio</span> <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="quick-card reveal">
-          <div class="quick-icon">
-            <i class="fas fa-graduation-cap"></i>
-          </div>
-          <h3>Cursos PADI</h3>
-          <p>Todos los niveles. Desde Open Water hasta certificaciones avanzadas.</p>
-          <a href="#inmersiones" class="quick-link">Ver cursos <i class="fas fa-arrow-right"></i></a>
+          <div class="quick-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3 data-i18n="qs.cursos.title">Cursos PADI</h3>
+          <p data-i18n="qs.cursos.desc">Todos los niveles. Desde Open Water hasta certificaciones avanzadas.</p>
+          <a href="#inmersiones" class="quick-link"><span data-i18n="qs.cursos.link">Ver cursos</span> <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="quick-card reveal">
-          <div class="quick-icon">
-            <i class="fas fa-compass"></i>
-          </div>
-          <h3>Excursiones Guiadas</h3>
-          <p>Explorá los fondos del Cap de Creus con guías expertos locales.</p>
-          <a href="#inmersiones" class="quick-link">Ver excursiones <i class="fas fa-arrow-right"></i></a>
+          <div class="quick-icon"><i class="fas fa-compass"></i></div>
+          <h3 data-i18n="qs.excursiones.title">Excursiones Guiadas</h3>
+          <p data-i18n="qs.excursiones.desc">Explorá los fondos del Cap de Creus con guías expertos locales.</p>
+          <a href="#inmersiones" class="quick-link"><span data-i18n="qs.excursiones.link">Ver excursiones</span> <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="quick-card reveal">
-          <div class="quick-icon">
-            <i class="fas fa-tools"></i>
-          </div>
-          <h3>Alquiler de Equipo</h3>
-          <p>Equipo CRESSI profesional. Snorkel, buceo y paddle surf disponibles.</p>
-          <a href="#precios" class="quick-link">Ver tarifas <i class="fas fa-arrow-right"></i></a>
+          <div class="quick-icon"><i class="fas fa-tools"></i></div>
+          <h3 data-i18n="qs.alquiler.title">Alquiler de Equipo</h3>
+          <p data-i18n="qs.alquiler.desc">Equipo CRESSI profesional. Snorkel, buceo y paddle surf disponibles.</p>
+          <a href="#precios" class="quick-link"><span data-i18n="qs.alquiler.link">Ver tarifas</span> <i class="fas fa-arrow-right"></i></a>
         </div>
       </div>
     </div>
@@ -168,40 +168,40 @@
   <section class="section" id="inmersiones">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">Experiencias</span>
-        <h2 class="section-title">Inmersiones para todos</h2>
-        <p class="section-subtitle">
+        <span class="section-tag" data-i18n="inm.tag">Experiencias</span>
+        <h2 class="section-title" data-i18n="inm.title">Inmersiones para todos</h2>
+        <p class="section-subtitle" data-i18n="inm.subtitle">
           Tanto si es tu primera vez como si ya sos buceador certificado, tenemos la experiencia perfecta para vos en las aguas cristalinas de Cadaqués.
         </p>
       </div>
 
       <div class="immersion-tabs reveal">
-        <button class="tab-btn active" data-tab="bautizo">Bautizo</button>
-        <button class="tab-btn" data-tab="cursos">Cursos PADI</button>
-        <button class="tab-btn" data-tab="excursiones">Excursiones</button>
-        <button class="tab-btn" data-tab="snorkel">Snorkel</button>
+        <button class="tab-btn active" data-tab="bautizo" data-i18n="tab.bautizo">Bautizo</button>
+        <button class="tab-btn" data-tab="cursos" data-i18n="tab.cursos">Cursos PADI</button>
+        <button class="tab-btn" data-tab="excursiones" data-i18n="tab.excursiones">Excursiones</button>
+        <button class="tab-btn" data-tab="snorkel" data-i18n="tab.snorkel">Snorkel</button>
       </div>
 
       <div class="tab-content active" id="tab-bautizo">
         <div class="tab-grid">
           <div class="tab-info reveal">
             <div class="tab-badge">
-              <i class="fas fa-heart"></i> Ideal para principiantes
+              <i class="fas fa-heart"></i> <span data-i18n="bautizo.badge">Ideal para principiantes</span>
             </div>
-            <h3>Bautizo de Buceo</h3>
-            <p>
+            <h3 data-i18n="bautizo.title">Bautizo de Buceo</h3>
+            <p data-i18n="bautizo.desc">
               ¿Nunca has buceado? No importa. Nuestros instructores PADI certificados te acompañan en cada paso, desde el equipo hasta la inmersión. Solo necesitás ganas de explorar.
             </p>
             <ul class="tab-features">
-              <li><i class="fas fa-check-circle"></i> Sin certificación previa necesaria</li>
-              <li><i class="fas fa-check-circle"></i> Briefing completo de seguridad</li>
-              <li><i class="fas fa-check-circle"></i> Equipo CRESSI incluido</li>
-              <li><i class="fas fa-check-circle"></i> Instructor PADI a tu lado siempre</li>
-              <li><i class="fas fa-check-circle"></i> Apto mayores de 8 años</li>
-              <li><i class="fas fa-check-circle"></i> Máximo 4 personas por instructor</li>
+              <li><i class="fas fa-check-circle"></i> <span data-i18n="bautizo.f1">Sin certificación previa necesaria</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-i18n="bautizo.f2">Briefing completo de seguridad</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-i18n="bautizo.f3">Equipo CRESSI incluido</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-i18n="bautizo.f4">Instructor PADI a tu lado siempre</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-i18n="bautizo.f5">Apto mayores de 8 años</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-i18n="bautizo.f6">Máximo 4 personas por instructor</span></li>
             </ul>
             <a href="https://wa.me/34605336158?text=Hola!%20Me%20gustaría%20reservar%20un%20bautizo%20de%20buceo" target="_blank" class="btn btn-primary">
-              <i class="fab fa-whatsapp"></i> Reservar ahora
+              <i class="fab fa-whatsapp"></i> <span data-i18n="bautizo.cta">Reservar ahora</span>
             </a>
           </div>
           <div class="tab-visual reveal">
@@ -212,19 +212,19 @@
               <div class="visual-details">
                 <div class="visual-detail">
                   <i class="fas fa-clock"></i>
-                  <span>~2 horas en total</span>
+                  <span data-i18n="bautizo.d1">~2 horas en total</span>
                 </div>
                 <div class="visual-detail">
                   <i class="fas fa-water"></i>
-                  <span>Hasta 5m de profundidad</span>
+                  <span data-i18n="bautizo.d2">Hasta 5m de profundidad</span>
                 </div>
                 <div class="visual-detail">
                   <i class="fas fa-map-marker-alt"></i>
-                  <span>Cala Nans, Cadaqués</span>
+                  <span data-i18n="bautizo.d3">Cala Nans, Cadaqués</span>
                 </div>
                 <div class="visual-detail">
                   <i class="fas fa-calendar-check"></i>
-                  <span>Disponible todo el año</span>
+                  <span data-i18n="bautizo.d4">Disponible todo el año</span>
                 </div>
               </div>
             </div>
@@ -289,22 +289,22 @@
         <div class="tab-grid">
           <div class="tab-info reveal">
             <div class="tab-badge">
-              <i class="fas fa-map"></i> Cap de Creus
+              <i class="fas fa-map"></i> <span data-i18n="exc.badge">Cap de Creus</span>
             </div>
-            <h3>Excursiones Guiadas</h3>
-            <p>
+            <h3 data-i18n="exc.title">Excursiones Guiadas</h3>
+            <p data-i18n="exc.desc">
               El Parque Natural Cap de Creus es uno de los espacios marinos más espectaculares del Mediterráneo. Nuestros guías locales conocen cada rincón de sus fondos.
             </p>
             <ul class="tab-features">
-              <li><i class="fas fa-check-circle"></i> Guías locales expertos en Cap de Creus</li>
-              <li><i class="fas fa-check-circle"></i> Grupos reducidos (máx. 6 personas)</li>
-              <li><i class="fas fa-check-circle"></i> Múltiples puntos de inmersión</li>
-              <li><i class="fas fa-check-circle"></i> Para todos los niveles certificados</li>
-              <li><i class="fas fa-check-circle"></i> Equipo CRESSI disponible</li>
-              <li><i class="fas fa-check-circle"></i> Salidas en barco incluidas</li>
+              <li><i class="fas fa-check-circle"></i> <span data-i18n="exc.f1">Guías locales expertos en Cap de Creus</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-i18n="exc.f2">Grupos reducidos (máx. 6 personas)</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-i18n="exc.f3">Múltiples puntos de inmersión</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-i18n="exc.f4">Para todos los niveles certificados</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-i18n="exc.f5">Equipo CRESSI disponible</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-i18n="exc.f6">Salidas en barco incluidas</span></li>
             </ul>
             <a href="https://wa.me/34605336158?text=Hola!%20Me%20gustaría%20información%20sobre%20las%20excursiones" target="_blank" class="btn btn-primary">
-              <i class="fab fa-whatsapp"></i> Consultar disponibilidad
+              <i class="fab fa-whatsapp"></i> <span data-i18n="exc.cta">Consultar disponibilidad</span>
             </a>
           </div>
           <div class="tab-visual reveal">
@@ -313,22 +313,10 @@
                 <img src="img/excursiones.jpg" alt="Excursiones de buceo en Cap de Creus" />
               </div>
               <div class="visual-details">
-                <div class="visual-detail">
-                  <i class="fas fa-anchor"></i>
-                  <span>Más de 10 puntos de buceo</span>
-                </div>
-                <div class="visual-detail">
-                  <i class="fas fa-water"></i>
-                  <span>Hasta 40m de profundidad</span>
-                </div>
-                <div class="visual-detail">
-                  <i class="fas fa-fish"></i>
-                  <span>Fauna mediterránea única</span>
-                </div>
-                <div class="visual-detail">
-                  <i class="fas fa-ship"></i>
-                  <span>Salida en barco</span>
-                </div>
+                <div class="visual-detail"><i class="fas fa-anchor"></i><span data-i18n="exc.d1">Más de 10 puntos de buceo</span></div>
+                <div class="visual-detail"><i class="fas fa-water"></i><span data-i18n="exc.d2">Hasta 40m de profundidad</span></div>
+                <div class="visual-detail"><i class="fas fa-fish"></i><span data-i18n="exc.d3">Fauna mediterránea única</span></div>
+                <div class="visual-detail"><i class="fas fa-ship"></i><span data-i18n="exc.d4">Salida en barco</span></div>
               </div>
             </div>
           </div>
@@ -339,21 +327,21 @@
         <div class="tab-grid">
           <div class="tab-info reveal">
             <div class="tab-badge">
-              <i class="fas fa-sun"></i> Toda la familia
+              <i class="fas fa-sun"></i> <span data-i18n="snk.badge">Toda la familia</span>
             </div>
-            <h3>Snorkel</h3>
-            <p>
+            <h3 data-i18n="snk.title">Snorkel</h3>
+            <p data-i18n="snk.desc">
               La forma más accesible de descubrir el mundo submarino. Perfecto para toda la familia, sin necesidad de experiencia previa.
             </p>
             <ul class="tab-features">
-              <li><i class="fas fa-check-circle"></i> Equipo de snorkel CRESSI incluido</li>
-              <li><i class="fas fa-check-circle"></i> Apto para toda la familia</li>
-              <li><i class="fas fa-check-circle"></i> También paddle surf disponible</li>
-              <li><i class="fas fa-check-circle"></i> Alquiler por horas o día completo</li>
-              <li><i class="fas fa-check-circle"></i> Mapas de calas recomendadas</li>
+              <li><i class="fas fa-check-circle"></i> <span data-i18n="snk.f1">Equipo de snorkel CRESSI incluido</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-i18n="snk.f2">Apto para toda la familia</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-i18n="snk.f3">También paddle surf disponible</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-i18n="snk.f4">Alquiler por horas o día completo</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-i18n="snk.f5">Mapas de calas recomendadas</span></li>
             </ul>
             <a href="https://wa.me/34605336158?text=Hola!%20Quiero%20alquilar%20equipo%20de%20snorkel" target="_blank" class="btn btn-primary">
-              <i class="fab fa-whatsapp"></i> Alquilar equipo
+              <i class="fab fa-whatsapp"></i> <span data-i18n="snk.cta">Alquilar equipo</span>
             </a>
           </div>
           <div class="tab-visual reveal">
@@ -362,22 +350,10 @@
                 <img src="img/snorkel.jpg" alt="Snorkel en Cadaqués" />
               </div>
               <div class="visual-details">
-                <div class="visual-detail">
-                  <i class="fas fa-swimmer"></i>
-                  <span>Sin experiencia necesaria</span>
-                </div>
-                <div class="visual-detail">
-                  <i class="fas fa-child"></i>
-                  <span>Desde 5 años</span>
-                </div>
-                <div class="visual-detail">
-                  <i class="fas fa-clock"></i>
-                  <span>Por horas o día completo</span>
-                </div>
-                <div class="visual-detail">
-                  <i class="fas fa-shield-alt"></i>
-                  <span>Equipo profesional CRESSI</span>
-                </div>
+                <div class="visual-detail"><i class="fas fa-swimmer"></i><span data-i18n="snk.d1">Sin experiencia necesaria</span></div>
+                <div class="visual-detail"><i class="fas fa-child"></i><span data-i18n="snk.d2">Desde 5 años</span></div>
+                <div class="visual-detail"><i class="fas fa-clock"></i><span data-i18n="snk.d3">Por horas o día completo</span></div>
+                <div class="visual-detail"><i class="fas fa-shield-alt"></i><span data-i18n="snk.d4">Equipo profesional CRESSI</span></div>
               </div>
             </div>
           </div>
@@ -393,9 +369,9 @@
   <section class="section section-alt" id="precios">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">Tarifas 2025</span>
-        <h2 class="section-title">Precios transparentes</h2>
-        <p class="section-subtitle">
+        <span class="section-tag" data-i18n="precio.tag">Tarifas 2025</span>
+        <h2 class="section-title" data-i18n="precio.title">Precios transparentes</h2>
+        <p class="section-subtitle" data-i18n="precio.subtitle">
           Sin sorpresas. Precios directos, sin intermediarios. Descuentos para grupos y bonos de inmersiones.
         </p>
       </div>
@@ -569,7 +545,7 @@
 
       <div class="pricing-note reveal">
         <i class="fas fa-info-circle"></i>
-        Suplemento por material extra: 5€. Precios por persona. Consulta disponibilidad y descuentos para grupos por WhatsApp.
+        <span data-i18n="precio.note">Suplemento por material extra: 5€. Precios por persona. Consulta disponibilidad y descuentos para grupos por WhatsApp.</span>
       </div>
     </div>
   </section>
@@ -580,48 +556,40 @@
   <section class="section" id="entorno">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">Cap de Creus</span>
-        <h2 class="section-title">Un entorno único</h2>
-        <p class="section-subtitle">
+        <span class="section-tag" data-i18n="ent.tag">Cap de Creus</span>
+        <h2 class="section-title" data-i18n="ent.title">Un entorno único</h2>
+        <p class="section-subtitle" data-i18n="ent.subtitle">
           Buceás en uno de los parques naturales marinos más biodiversos del Mediterráneo occidental. Un mundo submarino que te va a dejar sin palabras.
         </p>
       </div>
 
       <div class="environment-grid">
         <div class="env-card reveal">
-          <div class="env-icon">
-            <i class="fas fa-leaf"></i>
-          </div>
-          <h3>Parque Natural</h3>
-          <p>El Cap de Creus fue el primer parque natural marino de Cataluña. Sus aguas están protegidas y albergan una biodiversidad excepcional.</p>
+          <div class="env-icon"><i class="fas fa-leaf"></i></div>
+          <h3 data-i18n="ent.c1.title">Parque Natural</h3>
+          <p data-i18n="ent.c1.desc">El Cap de Creus fue el primer parque natural marino de Cataluña. Sus aguas están protegidas y albergan una biodiversidad excepcional.</p>
         </div>
         <div class="env-card reveal">
-          <div class="env-icon">
-            <i class="fas fa-fish"></i>
-          </div>
-          <h3>Fauna Marina</h3>
-          <p>Pulpos, morenas, langostas, meros, barracudas, estrellas de mar y corales gorgonianos. Cada inmersión es un descubrimiento.</p>
+          <div class="env-icon"><i class="fas fa-fish"></i></div>
+          <h3 data-i18n="ent.c2.title">Fauna Marina</h3>
+          <p data-i18n="ent.c2.desc">Pulpos, morenas, langostas, meros, barracudas, estrellas de mar y corales gorgonianos. Cada inmersión es un descubrimiento.</p>
         </div>
         <div class="env-card reveal">
-          <div class="env-icon">
-            <i class="fas fa-anchor"></i>
-          </div>
-          <h3>Puntos de Buceo</h3>
-          <p>Más de 10 puntos de inmersión para todos los niveles: arrecifes, cuevas submarinas, paredes de coral y pecios históricos.</p>
+          <div class="env-icon"><i class="fas fa-anchor"></i></div>
+          <h3 data-i18n="ent.c3.title">Puntos de Buceo</h3>
+          <p data-i18n="ent.c3.desc">Más de 10 puntos de inmersión para todos los niveles: arrecifes, cuevas submarinas, paredes de coral y pecios históricos.</p>
         </div>
         <div class="env-card reveal">
-          <div class="env-icon">
-            <i class="fas fa-eye"></i>
-          </div>
-          <h3>Visibilidad</h3>
-          <p>El Cap de Creus disfruta de algunas de las mejores condiciones de visibilidad del Mediterráneo, especialmente entre primavera y otoño.</p>
+          <div class="env-icon"><i class="fas fa-eye"></i></div>
+          <h3 data-i18n="ent.c4.title">Visibilidad</h3>
+          <p data-i18n="ent.c4.desc">El Cap de Creus disfruta de algunas de las mejores condiciones de visibilidad del Mediterráneo, especialmente entre primavera y otoño.</p>
         </div>
       </div>
 
       <div class="location-banner reveal">
         <div class="location-info">
-          <h3>Cadaqués, Costa Brava</h3>
-          <p>Un pueblo único enclavado entre el mar y el Parque Natural. El último pueblo antes del Cabo, accesible solo por carretera de montaña o en barco. Mágico.</p>
+          <h3 data-i18n="ent.loc.title">Cadaqués, Costa Brava</h3>
+          <p data-i18n="ent.loc.desc">Un pueblo único enclavado entre el mar y el Parque Natural. El último pueblo antes del Cabo, accesible solo por carretera de montaña o en barco. Mágico.</p>
           <div class="location-details">
             <span><i class="fas fa-map-marker-alt"></i> Plaça del Doctor Pont, 6-8B</span>
             <span><i class="fas fa-city"></i> Cadaqués, 17488</span>
@@ -651,9 +619,9 @@
   <section class="section section-alt" id="puntos-buceo">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">Explorar</span>
-        <h2 class="section-title">Puntos de Buceo</h2>
-        <p class="section-subtitle">
+        <span class="section-tag" data-i18n="spots.tag">Explorar</span>
+        <h2 class="section-title" data-i18n="spots.title">Puntos de Buceo</h2>
+        <p class="section-subtitle" data-i18n="spots.subtitle">
           Descubre los mejores fondos del Parque Natural Cap de Creus. Haz clic en cada punto del mapa para ver fotos y detalles.
         </p>
       </div>
@@ -663,7 +631,7 @@
         <div class="spots-panel">
           <div id="spots-loading" class="spots-empty">
             <div class="spots-empty-icon">🌊</div>
-            <p>Cargando puntos…</p>
+            <p data-i18n="spots.loading">Cargando puntos…</p>
           </div>
           <div id="spot-detail" class="spot-detail hidden">
             <div class="spot-detail-header">
@@ -688,41 +656,33 @@
   <section class="section section-dark" id="sostenible">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag light">Compromiso</span>
-        <h2 class="section-title light">Turismo sostenible</h2>
-        <p class="section-subtitle light">
+        <span class="section-tag light" data-i18n="sos.tag">Compromiso</span>
+        <h2 class="section-title light" data-i18n="sos.title">Turismo sostenible</h2>
+        <p class="section-subtitle light" data-i18n="sos.subtitle">
           El mar nos da todo. Es nuestra responsabilidad cuidarlo. En Cadaqués Divers, la sostenibilidad no es un eslogan — es nuestra forma de trabajar.
         </p>
       </div>
 
       <div class="sustainable-grid">
         <div class="sustainable-card reveal">
-          <div class="sustainable-icon">
-            <i class="fas fa-recycle"></i>
-          </div>
-          <h3>Sin plásticos de un solo uso</h3>
-          <p>Eliminamos el plástico desechable de todas nuestras operaciones. Colaboramos con iniciativas de limpieza de fondos marinos.</p>
+          <div class="sustainable-icon"><i class="fas fa-recycle"></i></div>
+          <h3 data-i18n="sos.c1.title">Sin plásticos de un solo uso</h3>
+          <p data-i18n="sos.c1.desc">Eliminamos el plástico desechable de todas nuestras operaciones. Colaboramos con iniciativas de limpieza de fondos marinos.</p>
         </div>
         <div class="sustainable-card reveal">
-          <div class="sustainable-icon">
-            <i class="fas fa-hand-holding-water"></i>
-          </div>
-          <h3>No tocar, no molestar</h3>
-          <p>Formamos a todos nuestros buceadores en el código de conducta marino. Observar sin interferir es nuestro principio fundamental.</p>
+          <div class="sustainable-icon"><i class="fas fa-hand-holding-water"></i></div>
+          <h3 data-i18n="sos.c2.title">No tocar, no molestar</h3>
+          <p data-i18n="sos.c2.desc">Formamos a todos nuestros buceadores en el código de conducta marino. Observar sin interferir es nuestro principio fundamental.</p>
         </div>
         <div class="sustainable-card reveal">
-          <div class="sustainable-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <h3>Grupos reducidos</h3>
-          <p>Nunca priorizamos la cantidad sobre la calidad. Grupos pequeños garantizan menor impacto ambiental y mejor experiencia.</p>
+          <div class="sustainable-icon"><i class="fas fa-users"></i></div>
+          <h3 data-i18n="sos.c3.title">Grupos reducidos</h3>
+          <p data-i18n="sos.c3.desc">Nunca priorizamos la cantidad sobre la calidad. Grupos pequeños garantizan menor impacto ambiental y mejor experiencia.</p>
         </div>
         <div class="sustainable-card reveal">
-          <div class="sustainable-icon">
-            <i class="fas fa-seedling"></i>
-          </div>
-          <h3>Apoyo al Parque Natural</h3>
-          <p>Colaboramos activamente con el Parque Natural de Cap de Creus en proyectos de conservación y monitoreo de la biodiversidad.</p>
+          <div class="sustainable-icon"><i class="fas fa-seedling"></i></div>
+          <h3 data-i18n="sos.c4.title">Apoyo al Parque Natural</h3>
+          <p data-i18n="sos.c4.desc">Colaboramos activamente con el Parque Natural de Cap de Creus en proyectos de conservación y monitoreo de la biodiversidad.</p>
         </div>
       </div>
 
@@ -730,8 +690,8 @@
         <div class="padi-badge-content">
           <i class="fas fa-award"></i>
           <div>
-            <h4>PADI 5 Star Dive Center</h4>
-            <p>La máxima certificación PADI. Garantía de seguridad, calidad y profesionalismo.</p>
+            <h4 data-i18n="sos.padi.title">PADI 5 Star Dive Center</h4>
+            <p data-i18n="sos.padi.desc">La máxima certificación PADI. Garantía de seguridad, calidad y profesionalismo.</p>
           </div>
         </div>
       </div>
@@ -744,9 +704,9 @@
   <section class="section" id="contacto">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">Contacto</span>
-        <h2 class="section-title">¿Hablamos?</h2>
-        <p class="section-subtitle">
+        <span class="section-tag" data-i18n="con.tag">Contacto</span>
+        <h2 class="section-title" data-i18n="con.title">¿Hablamos?</h2>
+        <p class="section-subtitle" data-i18n="con.subtitle">
           La forma más rápida de reservar es por WhatsApp. También podés escribirnos o visitarnos en el centro.
         </p>
       </div>
@@ -754,34 +714,28 @@
       <div class="contact-grid">
         <div class="contact-info reveal">
           <div class="contact-method">
-            <div class="contact-method-icon whatsapp">
-              <i class="fab fa-whatsapp"></i>
-            </div>
+            <div class="contact-method-icon whatsapp"><i class="fab fa-whatsapp"></i></div>
             <div class="contact-method-info">
-              <h4>WhatsApp</h4>
-              <p>La forma más rápida</p>
+              <h4 data-i18n="con.wa.title">WhatsApp</h4>
+              <p data-i18n="con.wa.desc">La forma más rápida</p>
               <a href="https://wa.me/34605336158" target="_blank" rel="noopener">+34 605 33 61 58</a>
             </div>
           </div>
 
           <div class="contact-method">
-            <div class="contact-method-icon instagram">
-              <i class="fab fa-instagram"></i>
-            </div>
+            <div class="contact-method-icon instagram"><i class="fab fa-instagram"></i></div>
             <div class="contact-method-info">
-              <h4>Instagram</h4>
-              <p>Fotos y actualizaciones</p>
+              <h4 data-i18n="con.ig.title">Instagram</h4>
+              <p data-i18n="con.ig.desc">Fotos y actualizaciones</p>
               <a href="https://instagram.com/cadaques.divers" target="_blank" rel="noopener">@cadaques.divers</a>
             </div>
           </div>
 
           <div class="contact-method">
-            <div class="contact-method-icon location">
-              <i class="fas fa-map-marker-alt"></i>
-            </div>
+            <div class="contact-method-icon location"><i class="fas fa-map-marker-alt"></i></div>
             <div class="contact-method-info">
-              <h4>Centro de Buceo</h4>
-              <p>Venís a vernos</p>
+              <h4 data-i18n="con.loc.title">Centro de Buceo</h4>
+              <p data-i18n="con.loc.desc">Venís a vernos</p>
               <span>Plaça del Doctor Pont, 6-8B<br />Cadaqués, 17488</span>
             </div>
           </div>
@@ -791,18 +745,18 @@
           <form id="contactForm">
             <div class="form-row">
               <div class="form-group">
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+                <label for="nombre" data-i18n="form.nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" data-i18n="form.nombre.ph" placeholder="Tu nombre" required />
               </div>
               <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="tu@email.com" required />
+                <input type="email" id="email" name="email" data-i18n="form.email.ph" placeholder="tu@email.com" required />
               </div>
             </div>
             <div class="form-group">
-              <label for="servicio">Servicio de interés</label>
+              <label for="servicio" data-i18n="form.servicio">Servicio de interés</label>
               <select id="servicio" name="servicio">
-                <option value="">Selecciona un servicio...</option>
+                <option value="" data-i18n="form.servicio.default">Selecciona un servicio...</option>
                 <option value="bautizo">Bautizo de Buceo</option>
                 <option value="inmersion">Inmersión Guiada</option>
                 <option value="curso-ow">Curso Open Water</option>
@@ -816,18 +770,18 @@
               </select>
             </div>
             <div class="form-group">
-              <label for="mensaje">Mensaje</label>
-              <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos qué necesitás, fechas, número de personas..." rows="4"></textarea>
+              <label for="mensaje" data-i18n="form.mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" data-i18n="form.mensaje.ph" placeholder="Cuéntanos qué necesitás, fechas, número de personas..." rows="4"></textarea>
             </div>
             <button type="submit" class="btn btn-primary btn-full">
               <i class="fas fa-paper-plane"></i>
-              Enviar mensaje
+              <span data-i18n="form.submit">Enviar mensaje</span>
             </button>
           </form>
           <div class="form-success" id="formSuccess">
             <i class="fas fa-check-circle"></i>
-            <h4>¡Mensaje enviado!</h4>
-            <p>Te respondemos a la brevedad, normalmente en menos de 24 horas.</p>
+            <h4 data-i18n="form.success.title">¡Mensaje enviado!</h4>
+            <p data-i18n="form.success.desc">Te respondemos a la brevedad, normalmente en menos de 24 horas.</p>
           </div>
         </div>
       </div>
@@ -845,7 +799,7 @@
             <i class="fas fa-water"></i>
             <span>Cadaqués<strong>Divers</strong></span>
           </div>
-          <p>Centro de buceo PADI 5 estrellas en el corazón de Cadaqués. Exploramos el mar con pasión y respeto.</p>
+          <p data-i18n="footer.brand.desc">Centro de buceo PADI 5 estrellas en el corazón de Cadaqués. Exploramos el mar con pasión y respeto.</p>
           <div class="footer-social">
             <a href="https://instagram.com/cadaques.divers" target="_blank" rel="noopener" aria-label="Instagram">
               <i class="fab fa-instagram"></i>
@@ -857,7 +811,7 @@
         </div>
 
         <div class="footer-links">
-          <h4>Servicios</h4>
+          <h4 data-i18n="footer.services">Servicios</h4>
           <ul>
             <li><a href="#inmersiones">Bautizo de Buceo</a></li>
             <li><a href="#inmersiones">Cursos PADI</a></li>
@@ -868,7 +822,7 @@
         </div>
 
         <div class="footer-links">
-          <h4>Información</h4>
+          <h4 data-i18n="footer.info">Información</h4>
           <ul>
             <li><a href="#entorno">Cap de Creus</a></li>
             <li><a href="#sostenible">Turismo Sostenible</a></li>
@@ -878,7 +832,7 @@
         </div>
 
         <div class="footer-contact">
-          <h4>Contacto</h4>
+          <h4 data-i18n="footer.contact">Contacto</h4>
           <div class="footer-contact-item">
             <i class="fab fa-whatsapp"></i>
             <a href="https://wa.me/34605336158">+34 605 33 61 58</a>
@@ -895,7 +849,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 Cadaqués Divers. Todos los derechos reservados.</p>
+        <p data-i18n="footer.rights">&copy; 2026 Cadaqués Divers. Todos los derechos reservados.</p>
         <div class="footer-certifications">
           <span class="cert-badge">PADI 5 ★</span>
           <span class="cert-badge">CRESSI</span>
@@ -906,6 +860,7 @@
   </footer>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

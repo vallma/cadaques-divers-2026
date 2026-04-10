@@ -1,0 +1,509 @@
+// ── Traducciones ─────────────────────────────────────────────────────────────
+const TRANSLATIONS = {
+  es: {
+    // Nav
+    'nav.inicio': 'Inicio',
+    'nav.inmersiones': 'Inmersiones',
+    'nav.precios': 'Precios',
+    'nav.entorno': 'Entorno',
+    'nav.puntos': 'Puntos de Buceo',
+    'nav.sostenible': 'Turismo Sostenible',
+    'nav.contacto': 'Contacto',
+    'nav.reservar': 'Reservar',
+
+    // Hero
+    'hero.badge': 'PADI 5 Star Dive Center',
+    'hero.title1': "Let's explore",
+    'hero.title2': 'the sea',
+    'hero.subtitle': 'Sumérgete en el Parque Natural Cap de Creus.<br>Cadaqués, Costa Brava.',
+    'hero.cta1': 'Explorar inmersiones',
+    'hero.cta2': 'Ver precios',
+    'hero.stat1label': '5 Estrellas',
+    'hero.stat2label': 'Parque Natural',
+    'hero.stat3label': 'Equipo Premium',
+
+    // Quick services
+    'qs.bautizo.title': 'Bautizo de Buceo',
+    'qs.bautizo.desc': 'Sin certificación previa. Vive tu primera inmersión con total seguridad.',
+    'qs.bautizo.link': 'Ver precio',
+    'qs.cursos.title': 'Cursos PADI',
+    'qs.cursos.desc': 'Todos los niveles. Desde Open Water hasta certificaciones avanzadas.',
+    'qs.cursos.link': 'Ver cursos',
+    'qs.excursiones.title': 'Excursiones Guiadas',
+    'qs.excursiones.desc': 'Explorá los fondos del Cap de Creus con guías expertos locales.',
+    'qs.excursiones.link': 'Ver excursiones',
+    'qs.alquiler.title': 'Alquiler de Equipo',
+    'qs.alquiler.desc': 'Equipo CRESSI profesional. Snorkel, buceo y paddle surf disponibles.',
+    'qs.alquiler.link': 'Ver tarifas',
+
+    // Inmersiones section
+    'inm.tag': 'Experiencias',
+    'inm.title': 'Inmersiones para todos',
+    'inm.subtitle': 'Tanto si es tu primera vez como si ya sos buceador certificado, tenemos la experiencia perfecta para vos en las aguas cristalinas de Cadaqués.',
+    'tab.bautizo': 'Bautizo',
+    'tab.cursos': 'Cursos PADI',
+    'tab.excursiones': 'Excursiones',
+    'tab.snorkel': 'Snorkel',
+
+    // Tab bautizo
+    'bautizo.badge': 'Ideal para principiantes',
+    'bautizo.title': 'Bautizo de Buceo',
+    'bautizo.desc': '¿Nunca has buceado? No importa. Nuestros instructores PADI certificados te acompañan en cada paso, desde el equipo hasta la inmersión. Solo necesitás ganas de explorar.',
+    'bautizo.f1': 'Sin certificación previa necesaria',
+    'bautizo.f2': 'Briefing completo de seguridad',
+    'bautizo.f3': 'Equipo CRESSI incluido',
+    'bautizo.f4': 'Instructor PADI a tu lado siempre',
+    'bautizo.f5': 'Apto mayores de 8 años',
+    'bautizo.f6': 'Máximo 4 personas por instructor',
+    'bautizo.cta': 'Reservar ahora',
+    'bautizo.d1': '~2 horas en total',
+    'bautizo.d2': 'Hasta 5m de profundidad',
+    'bautizo.d3': 'Cala Nans, Cadaqués',
+    'bautizo.d4': 'Disponible todo el año',
+
+    // Tab excursiones
+    'exc.badge': 'Cap de Creus',
+    'exc.title': 'Excursiones Guiadas',
+    'exc.desc': 'El Parque Natural Cap de Creus es uno de los espacios marinos más espectaculares del Mediterráneo. Nuestros guías locales conocen cada rincón de sus fondos.',
+    'exc.f1': 'Guías locales expertos en Cap de Creus',
+    'exc.f2': 'Grupos reducidos (máx. 6 personas)',
+    'exc.f3': 'Múltiples puntos de inmersión',
+    'exc.f4': 'Para todos los niveles certificados',
+    'exc.f5': 'Equipo CRESSI disponible',
+    'exc.f6': 'Salidas en barco incluidas',
+    'exc.cta': 'Consultar disponibilidad',
+    'exc.d1': 'Más de 10 puntos de buceo',
+    'exc.d2': 'Hasta 40m de profundidad',
+    'exc.d3': 'Fauna mediterránea única',
+    'exc.d4': 'Salida en barco',
+
+    // Tab snorkel
+    'snk.badge': 'Toda la familia',
+    'snk.title': 'Snorkel',
+    'snk.desc': 'La forma más accesible de descubrir el mundo submarino. Perfecto para toda la familia, sin necesidad de experiencia previa.',
+    'snk.f1': 'Equipo de snorkel CRESSI incluido',
+    'snk.f2': 'Apto para toda la familia',
+    'snk.f3': 'También paddle surf disponible',
+    'snk.f4': 'Alquiler por horas o día completo',
+    'snk.f5': 'Mapas de calas recomendadas',
+    'snk.cta': 'Alquilar equipo',
+    'snk.d1': 'Sin experiencia necesaria',
+    'snk.d2': 'Desde 5 años',
+    'snk.d3': 'Por horas o día completo',
+    'snk.d4': 'Equipo profesional CRESSI',
+
+    // Precios
+    'precio.tag': 'Tarifas 2025',
+    'precio.title': 'Precios transparentes',
+    'precio.subtitle': 'Sin sorpresas. Precios directos, sin intermediarios. Descuentos para grupos y bonos de inmersiones.',
+    'precio.note': 'Suplemento por material extra: 5€. Precios por persona. Consulta disponibilidad y descuentos para grupos por WhatsApp.',
+
+    // Entorno
+    'ent.tag': 'Cap de Creus',
+    'ent.title': 'Un entorno único',
+    'ent.subtitle': 'Buceás en uno de los parques naturales marinos más biodiversos del Mediterráneo occidental. Un mundo submarino que te va a dejar sin palabras.',
+    'ent.c1.title': 'Parque Natural',
+    'ent.c1.desc': 'El Cap de Creus fue el primer parque natural marino de Cataluña. Sus aguas están protegidas y albergan una biodiversidad excepcional.',
+    'ent.c2.title': 'Fauna Marina',
+    'ent.c2.desc': 'Pulpos, morenas, langostas, meros, barracudas, estrellas de mar y corales gorgonianos. Cada inmersión es un descubrimiento.',
+    'ent.c3.title': 'Puntos de Buceo',
+    'ent.c3.desc': 'Más de 10 puntos de inmersión para todos los niveles: arrecifes, cuevas submarinas, paredes de coral y pecios históricos.',
+    'ent.c4.title': 'Visibilidad',
+    'ent.c4.desc': 'El Cap de Creus disfruta de algunas de las mejores condiciones de visibilidad del Mediterráneo, especialmente entre primavera y otoño.',
+    'ent.loc.title': 'Cadaqués, Costa Brava',
+    'ent.loc.desc': 'Un pueblo único enclavado entre el mar y el Parque Natural. El último pueblo antes del Cabo, accesible solo por carretera de montaña o en barco. Mágico.',
+
+    // Puntos de buceo
+    'spots.tag': 'Explorar',
+    'spots.title': 'Puntos de Buceo',
+    'spots.subtitle': 'Descubre los mejores fondos del Parque Natural Cap de Creus. Haz clic en cada punto del mapa para ver fotos y detalles.',
+    'spots.loading': 'Cargando puntos…',
+
+    // Sostenible
+    'sos.tag': 'Compromiso',
+    'sos.title': 'Turismo sostenible',
+    'sos.subtitle': 'El mar nos da todo. Es nuestra responsabilidad cuidarlo. En Cadaqués Divers, la sostenibilidad no es un eslogan — es nuestra forma de trabajar.',
+    'sos.c1.title': 'Sin plásticos de un solo uso',
+    'sos.c1.desc': 'Eliminamos el plástico desechable de todas nuestras operaciones. Colaboramos con iniciativas de limpieza de fondos marinos.',
+    'sos.c2.title': 'No tocar, no molestar',
+    'sos.c2.desc': 'Formamos a todos nuestros buceadores en el código de conducta marino. Observar sin interferir es nuestro principio fundamental.',
+    'sos.c3.title': 'Grupos reducidos',
+    'sos.c3.desc': 'Nunca priorizamos la cantidad sobre la calidad. Grupos pequeños garantizan menor impacto ambiental y mejor experiencia.',
+    'sos.c4.title': 'Apoyo al Parque Natural',
+    'sos.c4.desc': 'Colaboramos activamente con el Parque Natural de Cap de Creus en proyectos de conservación y monitoreo de la biodiversidad.',
+    'sos.padi.title': 'PADI 5 Star Dive Center',
+    'sos.padi.desc': 'La máxima certificación PADI. Garantía de seguridad, calidad y profesionalismo.',
+
+    // Contacto
+    'con.tag': 'Contacto',
+    'con.title': '¿Hablamos?',
+    'con.subtitle': 'La forma más rápida de reservar es por WhatsApp. También podés escribirnos o visitarnos en el centro.',
+    'con.wa.title': 'WhatsApp',
+    'con.wa.desc': 'La forma más rápida',
+    'con.ig.title': 'Instagram',
+    'con.ig.desc': 'Fotos y actualizaciones',
+    'con.loc.title': 'Centro de Buceo',
+    'con.loc.desc': 'Venís a vernos',
+    'form.nombre': 'Nombre',
+    'form.nombre.ph': 'Tu nombre',
+    'form.email.ph': 'tu@email.com',
+    'form.servicio': 'Servicio de interés',
+    'form.servicio.default': 'Selecciona un servicio...',
+    'form.mensaje': 'Mensaje',
+    'form.mensaje.ph': 'Cuéntanos qué necesitás, fechas, número de personas...',
+    'form.submit': 'Enviar mensaje',
+    'form.success.title': '¡Mensaje enviado!',
+    'form.success.desc': 'Te respondemos a la brevedad, normalmente en menos de 24 horas.',
+
+    // Footer
+    'footer.brand.desc': 'Centro de buceo PADI 5 estrellas en el corazón de Cadaqués. Exploramos el mar con pasión y respeto.',
+    'footer.services': 'Servicios',
+    'footer.info': 'Información',
+    'footer.contact': 'Contacto',
+    'footer.rights': '© 2026 Cadaqués Divers. Todos los derechos reservados.',
+  },
+
+  en: {
+    'nav.inicio': 'Home',
+    'nav.inmersiones': 'Dives',
+    'nav.precios': 'Prices',
+    'nav.entorno': 'Environment',
+    'nav.puntos': 'Dive Sites',
+    'nav.sostenible': 'Sustainable Tourism',
+    'nav.contacto': 'Contact',
+    'nav.reservar': 'Book now',
+
+    'hero.badge': 'PADI 5 Star Dive Center',
+    'hero.title1': "Let's explore",
+    'hero.title2': 'the sea',
+    'hero.subtitle': 'Dive into the Cap de Creus Natural Park.<br>Cadaqués, Costa Brava.',
+    'hero.cta1': 'Explore dives',
+    'hero.cta2': 'View prices',
+    'hero.stat1label': '5 Stars',
+    'hero.stat2label': 'Natural Park',
+    'hero.stat3label': 'Premium Gear',
+
+    'qs.bautizo.title': 'Try Scuba',
+    'qs.bautizo.desc': 'No certification needed. Experience your first dive in complete safety.',
+    'qs.bautizo.link': 'See price',
+    'qs.cursos.title': 'PADI Courses',
+    'qs.cursos.desc': 'All levels. From Open Water to advanced certifications.',
+    'qs.cursos.link': 'View courses',
+    'qs.excursiones.title': 'Guided Dives',
+    'qs.excursiones.desc': 'Explore the seabed of Cap de Creus with expert local guides.',
+    'qs.excursiones.link': 'View dives',
+    'qs.alquiler.title': 'Equipment Rental',
+    'qs.alquiler.desc': 'Professional CRESSI gear. Snorkel, scuba and paddleboard available.',
+    'qs.alquiler.link': 'View rates',
+
+    'inm.tag': 'Experiences',
+    'inm.title': 'Dives for everyone',
+    'inm.subtitle': "Whether it's your first time or you're already certified, we have the perfect experience for you in the crystal-clear waters of Cadaqués.",
+    'tab.bautizo': 'Try Scuba',
+    'tab.cursos': 'PADI Courses',
+    'tab.excursiones': 'Guided Dives',
+    'tab.snorkel': 'Snorkel',
+
+    'bautizo.badge': 'Ideal for beginners',
+    'bautizo.title': 'Try Scuba Diving',
+    'bautizo.desc': "Never dived before? No problem. Our certified PADI instructors guide you through every step, from the gear to the dive. All you need is the desire to explore.",
+    'bautizo.f1': 'No prior certification needed',
+    'bautizo.f2': 'Full safety briefing',
+    'bautizo.f3': 'CRESSI equipment included',
+    'bautizo.f4': 'PADI instructor by your side always',
+    'bautizo.f5': 'Suitable for ages 8+',
+    'bautizo.f6': 'Maximum 4 people per instructor',
+    'bautizo.cta': 'Book now',
+    'bautizo.d1': '~2 hours total',
+    'bautizo.d2': 'Up to 5m depth',
+    'bautizo.d3': 'Cala Nans, Cadaqués',
+    'bautizo.d4': 'Available year-round',
+
+    'exc.badge': 'Cap de Creus',
+    'exc.title': 'Guided Dives',
+    'exc.desc': 'Cap de Creus Natural Park is one of the most spectacular marine areas in the Mediterranean. Our local guides know every corner of its seabed.',
+    'exc.f1': 'Local expert guides at Cap de Creus',
+    'exc.f2': 'Small groups (max. 6 people)',
+    'exc.f3': 'Multiple dive sites',
+    'exc.f4': 'For all certified levels',
+    'exc.f5': 'CRESSI equipment available',
+    'exc.f6': 'Boat trips included',
+    'exc.cta': 'Check availability',
+    'exc.d1': 'Over 10 dive sites',
+    'exc.d2': 'Up to 40m depth',
+    'exc.d3': 'Unique Mediterranean wildlife',
+    'exc.d4': 'Boat departure',
+
+    'snk.badge': 'For the whole family',
+    'snk.title': 'Snorkeling',
+    'snk.desc': 'The most accessible way to discover the underwater world. Perfect for the whole family, no prior experience needed.',
+    'snk.f1': 'CRESSI snorkel equipment included',
+    'snk.f2': 'Suitable for the whole family',
+    'snk.f3': 'Paddleboard also available',
+    'snk.f4': 'Rental by the hour or full day',
+    'snk.f5': 'Maps of recommended coves',
+    'snk.cta': 'Rent equipment',
+    'snk.d1': 'No experience needed',
+    'snk.d2': 'From age 5',
+    'snk.d3': 'By the hour or full day',
+    'snk.d4': 'Professional CRESSI gear',
+
+    'precio.tag': '2025 Rates',
+    'precio.title': 'Transparent prices',
+    'precio.subtitle': 'No surprises. Direct prices, no middlemen. Discounts for groups and dive packages.',
+    'precio.note': 'Extra equipment supplement: €5. Prices per person. Ask about availability and group discounts on WhatsApp.',
+
+    'ent.tag': 'Cap de Creus',
+    'ent.title': 'A unique environment',
+    'ent.subtitle': "You'll dive in one of the most biodiverse marine natural parks in the western Mediterranean. An underwater world that will leave you speechless.",
+    'ent.c1.title': 'Natural Park',
+    'ent.c1.desc': "Cap de Creus was the first marine natural park in Catalonia. Its waters are protected and home to exceptional biodiversity.",
+    'ent.c2.title': 'Marine Life',
+    'ent.c2.desc': 'Octopuses, moray eels, lobsters, groupers, barracudas, starfish and gorgonian corals. Every dive is a discovery.',
+    'ent.c3.title': 'Dive Sites',
+    'ent.c3.desc': 'Over 10 dive spots for all levels: reefs, underwater caves, coral walls and historic wrecks.',
+    'ent.c4.title': 'Visibility',
+    'ent.c4.desc': 'Cap de Creus enjoys some of the best visibility conditions in the Mediterranean, especially between spring and autumn.',
+    'ent.loc.title': 'Cadaqués, Costa Brava',
+    'ent.loc.desc': 'A unique village nestled between the sea and the Natural Park. The last village before the cape, accessible only by mountain road or by boat. Magical.',
+
+    'spots.tag': 'Explore',
+    'spots.title': 'Dive Sites',
+    'spots.subtitle': 'Discover the best seabeds of the Cap de Creus Natural Park. Click on each point on the map to see photos and details.',
+    'spots.loading': 'Loading spots…',
+
+    'sos.tag': 'Commitment',
+    'sos.title': 'Sustainable tourism',
+    'sos.subtitle': "The sea gives us everything. It's our responsibility to care for it. At Cadaqués Divers, sustainability isn't a slogan — it's how we work.",
+    'sos.c1.title': 'No single-use plastics',
+    'sos.c1.desc': 'We have eliminated disposable plastic from all our operations. We collaborate with seabed cleanup initiatives.',
+    'sos.c2.title': 'Look but don\'t touch',
+    'sos.c2.desc': 'We train all our divers in the marine code of conduct. Observing without interfering is our fundamental principle.',
+    'sos.c3.title': 'Small groups',
+    'sos.c3.desc': 'We never prioritise quantity over quality. Small groups ensure less environmental impact and a better experience.',
+    'sos.c4.title': 'Supporting the Natural Park',
+    'sos.c4.desc': 'We actively collaborate with the Cap de Creus Natural Park on conservation and biodiversity monitoring projects.',
+    'sos.padi.title': 'PADI 5 Star Dive Center',
+    'sos.padi.desc': 'The highest PADI certification. A guarantee of safety, quality and professionalism.',
+
+    'con.tag': 'Contact',
+    'con.title': 'Let\'s talk?',
+    'con.subtitle': 'The fastest way to book is by WhatsApp. You can also write to us or visit us at the centre.',
+    'con.wa.title': 'WhatsApp',
+    'con.wa.desc': 'The fastest way',
+    'con.ig.title': 'Instagram',
+    'con.ig.desc': 'Photos and updates',
+    'con.loc.title': 'Dive Centre',
+    'con.loc.desc': 'Come and see us',
+    'form.nombre': 'Name',
+    'form.nombre.ph': 'Your name',
+    'form.email.ph': 'you@email.com',
+    'form.servicio': 'Service of interest',
+    'form.servicio.default': 'Select a service...',
+    'form.mensaje': 'Message',
+    'form.mensaje.ph': 'Tell us what you need, dates, number of people...',
+    'form.submit': 'Send message',
+    'form.success.title': 'Message sent!',
+    'form.success.desc': "We'll get back to you shortly, usually within 24 hours.",
+
+    'footer.brand.desc': 'PADI 5-star dive centre in the heart of Cadaqués. We explore the sea with passion and respect.',
+    'footer.services': 'Services',
+    'footer.info': 'Information',
+    'footer.contact': 'Contact',
+    'footer.rights': '© 2026 Cadaqués Divers. All rights reserved.',
+  },
+
+  fr: {
+    'nav.inicio': 'Accueil',
+    'nav.inmersiones': 'Plongées',
+    'nav.precios': 'Tarifs',
+    'nav.entorno': 'Environnement',
+    'nav.puntos': 'Sites de Plongée',
+    'nav.sostenible': 'Tourisme Durable',
+    'nav.contacto': 'Contact',
+    'nav.reservar': 'Réserver',
+
+    'hero.badge': 'PADI 5 Star Dive Center',
+    'hero.title1': "Let's explore",
+    'hero.title2': 'the sea',
+    'hero.subtitle': 'Plongez dans le Parc Naturel du Cap de Creus.<br>Cadaqués, Costa Brava.',
+    'hero.cta1': 'Explorer les plongées',
+    'hero.cta2': 'Voir les tarifs',
+    'hero.stat1label': '5 Étoiles',
+    'hero.stat2label': 'Parc Naturel',
+    'hero.stat3label': 'Équipement Premium',
+
+    'qs.bautizo.title': 'Baptême de Plongée',
+    'qs.bautizo.desc': 'Sans certification préalable. Vivez votre première plongée en toute sécurité.',
+    'qs.bautizo.link': 'Voir le tarif',
+    'qs.cursos.title': 'Cours PADI',
+    'qs.cursos.desc': 'Tous niveaux. De l\'Open Water aux certifications avancées.',
+    'qs.cursos.link': 'Voir les cours',
+    'qs.excursiones.title': 'Plongées Guidées',
+    'qs.excursiones.desc': 'Explorez les fonds du Cap de Creus avec des guides locaux experts.',
+    'qs.excursiones.link': 'Voir les plongées',
+    'qs.alquiler.title': 'Location d\'Équipement',
+    'qs.alquiler.desc': 'Équipement CRESSI professionnel. Snorkel, plongée et paddle disponibles.',
+    'qs.alquiler.link': 'Voir les tarifs',
+
+    'inm.tag': 'Expériences',
+    'inm.title': 'Plongées pour tous',
+    'inm.subtitle': "Que ce soit votre première fois ou que vous soyez déjà certifié, nous avons l'expérience parfaite pour vous dans les eaux cristallines de Cadaqués.",
+    'tab.bautizo': 'Baptême',
+    'tab.cursos': 'Cours PADI',
+    'tab.excursiones': 'Plongées Guidées',
+    'tab.snorkel': 'Snorkeling',
+
+    'bautizo.badge': 'Idéal pour les débutants',
+    'bautizo.title': 'Baptême de Plongée',
+    'bautizo.desc': "Vous n'avez jamais plongé ? Pas de problème. Nos instructeurs PADI certifiés vous accompagnent à chaque étape, de l'équipement à la plongée. Il vous suffit d'avoir envie d'explorer.",
+    'bautizo.f1': 'Aucune certification préalable nécessaire',
+    'bautizo.f2': 'Briefing sécurité complet',
+    'bautizo.f3': 'Équipement CRESSI inclus',
+    'bautizo.f4': 'Instructeur PADI toujours à vos côtés',
+    'bautizo.f5': 'Accessible dès 8 ans',
+    'bautizo.f6': 'Maximum 4 personnes par instructeur',
+    'bautizo.cta': 'Réserver maintenant',
+    'bautizo.d1': '~2 heures au total',
+    'bautizo.d2': "Jusqu'à 5m de profondeur",
+    'bautizo.d3': 'Cala Nans, Cadaqués',
+    'bautizo.d4': "Disponible toute l'année",
+
+    'exc.badge': 'Cap de Creus',
+    'exc.title': 'Plongées Guidées',
+    'exc.desc': "Le Parc Naturel du Cap de Creus est l'un des espaces marins les plus spectaculaires de la Méditerranée. Nos guides locaux connaissent chaque recoin de ses fonds.",
+    'exc.f1': 'Guides locaux experts du Cap de Creus',
+    'exc.f2': 'Petits groupes (max. 6 personnes)',
+    'exc.f3': 'Plusieurs sites de plongée',
+    'exc.f4': 'Pour tous les niveaux certifiés',
+    'exc.f5': 'Équipement CRESSI disponible',
+    'exc.f6': 'Sorties en bateau incluses',
+    'exc.cta': 'Vérifier les disponibilités',
+    'exc.d1': 'Plus de 10 sites de plongée',
+    'exc.d2': "Jusqu'à 40m de profondeur",
+    'exc.d3': 'Faune méditerranéenne unique',
+    'exc.d4': 'Départ en bateau',
+
+    'snk.badge': 'Pour toute la famille',
+    'snk.title': 'Snorkeling',
+    'snk.desc': 'La façon la plus accessible de découvrir le monde sous-marin. Parfait pour toute la famille, sans expérience préalable.',
+    'snk.f1': 'Équipement snorkel CRESSI inclus',
+    'snk.f2': 'Convient à toute la famille',
+    'snk.f3': 'Paddle aussi disponible',
+    'snk.f4': 'Location à l\'heure ou à la journée',
+    'snk.f5': 'Cartes des criques recommandées',
+    'snk.cta': 'Louer l\'équipement',
+    'snk.d1': 'Aucune expérience nécessaire',
+    'snk.d2': 'Dès 5 ans',
+    'snk.d3': "À l'heure ou à la journée",
+    'snk.d4': 'Équipement professionnel CRESSI',
+
+    'precio.tag': 'Tarifs 2025',
+    'precio.title': 'Prix transparents',
+    'precio.subtitle': 'Pas de surprises. Prix directs, sans intermédiaires. Réductions pour les groupes et les forfaits de plongées.',
+    'precio.note': 'Supplément matériel extra : 5€. Prix par personne. Renseignez-vous sur les disponibilités et les réductions de groupe par WhatsApp.',
+
+    'ent.tag': 'Cap de Creus',
+    'ent.title': 'Un environnement unique',
+    'ent.subtitle': "Vous plongerez dans l'un des parcs naturels marins les plus biodiversifiés de la Méditerranée occidentale. Un monde sous-marin qui vous laissera sans voix.",
+    'ent.c1.title': 'Parc Naturel',
+    'ent.c1.desc': "Le Cap de Creus a été le premier parc naturel marin de Catalogne. Ses eaux sont protégées et abritent une biodiversité exceptionnelle.",
+    'ent.c2.title': 'Faune Marine',
+    'ent.c2.desc': 'Pieuvres, murènes, langoustes, mérous, barracudas, étoiles de mer et coraux gorgones. Chaque plongée est une découverte.',
+    'ent.c3.title': 'Sites de Plongée',
+    'ent.c3.desc': "Plus de 10 sites de plongée pour tous les niveaux : récifs, grottes sous-marines, parois de corail et épaves historiques.",
+    'ent.c4.title': 'Visibilité',
+    'ent.c4.desc': "Le Cap de Creus bénéficie de certaines des meilleures conditions de visibilité de la Méditerranée, notamment du printemps à l'automne.",
+    'ent.loc.title': 'Cadaqués, Costa Brava',
+    'ent.loc.desc': "Un village unique niché entre la mer et le Parc Naturel. Le dernier village avant le cap, accessible uniquement par route de montagne ou en bateau. Magique.",
+
+    'spots.tag': 'Explorer',
+    'spots.title': 'Sites de Plongée',
+    'spots.subtitle': "Découvrez les meilleurs fonds du Parc Naturel du Cap de Creus. Cliquez sur chaque point de la carte pour voir les photos et les détails.",
+    'spots.loading': 'Chargement des sites…',
+
+    'sos.tag': 'Engagement',
+    'sos.title': 'Tourisme durable',
+    'sos.subtitle': "La mer nous donne tout. C'est notre responsabilité d'en prendre soin. Chez Cadaqués Divers, la durabilité n'est pas un slogan — c'est notre façon de travailler.",
+    'sos.c1.title': 'Sans plastiques à usage unique',
+    'sos.c1.desc': "Nous avons supprimé le plastique jetable de toutes nos opérations. Nous collaborons avec des initiatives de nettoyage des fonds marins.",
+    'sos.c2.title': 'Ne pas toucher, ne pas déranger',
+    'sos.c2.desc': "Nous formons tous nos plongeurs au code de conduite marin. Observer sans interférer est notre principe fondamental.",
+    'sos.c3.title': 'Petits groupes',
+    'sos.c3.desc': "Nous ne privilégions jamais la quantité sur la qualité. Les petits groupes garantissent un moindre impact environnemental et une meilleure expérience.",
+    'sos.c4.title': 'Soutien au Parc Naturel',
+    'sos.c4.desc': "Nous collaborons activement avec le Parc Naturel du Cap de Creus sur des projets de conservation et de surveillance de la biodiversité.",
+    'sos.padi.title': 'PADI 5 Star Dive Center',
+    'sos.padi.desc': "La plus haute certification PADI. Garantie de sécurité, de qualité et de professionnalisme.",
+
+    'con.tag': 'Contact',
+    'con.title': 'On discute ?',
+    'con.subtitle': "La façon la plus rapide de réserver est par WhatsApp. Vous pouvez aussi nous écrire ou nous rendre visite au centre.",
+    'con.wa.title': 'WhatsApp',
+    'con.wa.desc': 'La façon la plus rapide',
+    'con.ig.title': 'Instagram',
+    'con.ig.desc': 'Photos et actualités',
+    'con.loc.title': 'Centre de Plongée',
+    'con.loc.desc': 'Venez nous voir',
+    'form.nombre': 'Nom',
+    'form.nombre.ph': 'Votre nom',
+    'form.email.ph': 'vous@email.com',
+    'form.servicio': "Service d'intérêt",
+    'form.servicio.default': 'Sélectionnez un service...',
+    'form.mensaje': 'Message',
+    'form.mensaje.ph': 'Dites-nous ce dont vous avez besoin, les dates, le nombre de personnes...',
+    'form.submit': 'Envoyer le message',
+    'form.success.title': 'Message envoyé !',
+    'form.success.desc': "Nous vous répondrons dans les plus brefs délais, généralement en moins de 24 heures.",
+
+    'footer.brand.desc': "Centre de plongée PADI 5 étoiles au cœur de Cadaqués. Nous explorons la mer avec passion et respect.",
+    'footer.services': 'Services',
+    'footer.info': 'Informations',
+    'footer.contact': 'Contact',
+    'footer.rights': '© 2026 Cadaqués Divers. Tous droits réservés.',
+  }
+}
+
+// ── Motor i18n ────────────────────────────────────────────────────────────────
+let currentLocale = localStorage.getItem('cd_locale') || 'es'
+
+function t(key) {
+  return TRANSLATIONS[currentLocale][key] || TRANSLATIONS['es'][key] || key
+}
+
+function applyTranslations() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n')
+    const val = t(key)
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+      el.placeholder = val
+    } else if (el.hasAttribute('data-i18n-html')) {
+      el.innerHTML = val
+    } else {
+      el.textContent = val
+    }
+  })
+
+  // Sync switcher buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === currentLocale)
+  })
+
+  // Update html lang attribute
+  document.documentElement.lang = currentLocale
+}
+
+function switchLocale(lang) {
+  currentLocale = lang
+  localStorage.setItem('cd_locale', lang)
+  applyTranslations()
+}
+
+// Init on DOM ready
+document.addEventListener('DOMContentLoaded', () => {
+  applyTranslations()
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => switchLocale(btn.dataset.lang))
+  })
+})
