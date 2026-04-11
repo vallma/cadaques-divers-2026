@@ -395,6 +395,42 @@
     isDragging = true;
   }, { passive: true });
 
+  function swimTo(pct) {
+    const range = getRange();
+    const targetTop = TOP_MIN + Math.max(0, Math.min(1, pct)) * range;
+    diver.style.transition = 'top 0.7s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.3s ease';
+    diver.style.top = targetTop + 'px';
+    setTimeout(() => {
+      diver.style.transition = 'top 0.12s linear, transform 0.3s ease';
+    }, 750);
+  }
+
+  function onButtonClick(e) {
+    const btn = e.currentTarget;
+    const href = btn.getAttribute('href');
+
+    if (href && href.startsWith('#')) {
+      const target = document.querySelector(href);
+      if (target) {
+        const docH = document.documentElement.scrollHeight - window.innerHeight;
+        swimTo(target.offsetTop / docH);
+        return;
+      }
+    }
+
+    // Botón sin sección: pequeño rebote
+    diver.style.transition = 'transform 0.15s ease';
+    diver.style.transform = 'scale(1.3)';
+    setTimeout(() => {
+      diver.style.transition = 'top 0.12s linear, transform 0.3s ease';
+      diver.style.transform = 'scaleY(1)';
+    }, 180);
+  }
+
+  document.querySelectorAll('a[href^="#"], .tab-btn').forEach(btn => {
+    btn.addEventListener('click', onButtonClick);
+  });
+
   window.addEventListener('mousemove', onDragMove);
   window.addEventListener('touchmove', onDragMove, { passive: false });
   window.addEventListener('mouseup', onDragEnd);
