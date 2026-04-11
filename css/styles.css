@@ -2147,3 +2147,52 @@ input, textarea, select {
     min-height: auto;
   }
 }
+
+/* ════════════════════════════════════════════════
+   SCROLL DIVER
+════════════════════════════════════════════════ */
+.scroll-track {
+  position: fixed;
+  right: 10px;
+  top: 0;
+  bottom: 0;
+  width: 36px;
+  z-index: 9999;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.scroll-diver {
+  position: fixed;
+  right: 10px;
+  width: 36px;
+  top: 100px;
+  will-change: top, transform;
+  transition: top 0.12s linear, transform 0.3s ease;
+  -webkit-transition: top 0.12s linear, -webkit-transform 0.3s ease;
+  opacity: 0.9;
+}
+
+.scroll-diver .fin-left {
+  transform-box: fill-box;
+  transform-origin: center 100%;
+  animation: fin-kick-left 0.65s ease-in-out infinite;
+}
+
+.scroll-diver .fin-right {
+  transform-box: fill-box;
+  transform-origin: center 100%;
+  animation: fin-kick-right 0.65s ease-in-out infinite;
+  animation-delay: -0.325s;
+}
+
+@keyframes fin-kick-left {
+  0%, 100% { transform: rotate(-22deg); }
+  50%       { transform: rotate(22deg);  }
+}
+
+@keyframes fin-kick-right {
+  0%, 100% { transform: rotate(22deg);  }
+  50%       { transform: rotate(-22deg); }
+}
+

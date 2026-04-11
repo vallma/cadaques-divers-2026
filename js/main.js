@@ -336,6 +336,33 @@
     });
 })();
 
+// ── Scroll Diver progress indicator ─────────────
+(function initScrollDiver() {
+  const diver = document.getElementById('scrollDiver');
+  if (!diver) return;
+
+  let lastScrollY = window.scrollY;
+  const topMin = 100;
+  const bottomPad = 80;
+
+  function updateDiver() {
+    const scrollTop = window.scrollY;
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docH > 0 ? scrollTop / docH : 0;
+    const range = window.innerHeight - topMin - bottomPad - diver.offsetHeight;
+    diver.style.top = (topMin + pct * range) + 'px';
+
+    const goingUp = scrollTop < lastScrollY;
+    const flip = goingUp ? 'scaleY(-1)' : 'scaleY(1)';
+    diver.style.transform = flip;
+    diver.style.webkitTransform = flip;
+    lastScrollY = scrollTop;
+  }
+
+  window.addEventListener('scroll', updateDiver, { passive: true });
+  updateDiver();
+})();
+
 // ── Pricing card hover depth ─────────────────────
 (function initCardDepth() {
   document.querySelectorAll('.pricing-card, .quick-card, .course-card').forEach(card => {
