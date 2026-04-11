@@ -2171,6 +2171,15 @@ input, textarea, select {
   transition: top 0.12s linear, transform 0.3s ease;
   -webkit-transition: top 0.12s linear, -webkit-transform 0.3s ease;
   opacity: 0.9;
+  pointer-events: auto;
+  cursor: grab;
+  touch-action: none;
+}
+
+.scroll-diver:active {
+  cursor: grabbing;
+  opacity: 1;
+  transform: scale(1.15);
 }
 
 .scroll-diver .fin-left {

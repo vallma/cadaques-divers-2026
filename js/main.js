@@ -341,16 +341,21 @@
   const diver = document.getElementById('scrollDiver');
   if (!diver) return;
 
+  const TOP_MIN = 100;
+  const BOTTOM_PAD = 80;
   let lastScrollY = window.scrollY;
-  const topMin = 100;
-  const bottomPad = 80;
+  let isDragging = false;
+
+  function getRange() {
+    return window.innerHeight - TOP_MIN - BOTTOM_PAD - diver.offsetHeight;
+  }
 
   function updateDiver() {
+    if (isDragging) return;
     const scrollTop = window.scrollY;
     const docH = document.documentElement.scrollHeight - window.innerHeight;
     const pct = docH > 0 ? scrollTop / docH : 0;
-    const range = window.innerHeight - topMin - bottomPad - diver.offsetHeight;
-    diver.style.top = (topMin + pct * range) + 'px';
+    diver.style.top = (TOP_MIN + pct * getRange()) + 'px';
 
     const goingUp = scrollTop < lastScrollY;
     const flip = goingUp ? 'scaleY(-1)' : 'scaleY(1)';
@@ -359,6 +364,41 @@
     lastScrollY = scrollTop;
   }
 
+  function getClientY(e) {
+    return e.touches ? e.touches[0].clientY : e.clientY;
+  }
+
+  function onDragMove(e) {
+    if (!isDragging) return;
+    e.preventDefault();
+    const clientY = getClientY(e);
+    const range = getRange();
+    const newTop = Math.max(TOP_MIN, Math.min(TOP_MIN + range, clientY - diver.offsetHeight / 2));
+    const pct = (newTop - TOP_MIN) / range;
+    diver.style.top = newTop + 'px';
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    window.scrollTo({ top: pct * docH, behavior: 'instant' });
+  }
+
+  function onDragEnd() {
+    if (!isDragging) return;
+    isDragging = false;
+    lastScrollY = window.scrollY;
+  }
+
+  diver.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    e.preventDefault();
+  });
+
+  diver.addEventListener('touchstart', (e) => {
+    isDragging = true;
+  }, { passive: true });
+
+  window.addEventListener('mousemove', onDragMove);
+  window.addEventListener('touchmove', onDragMove, { passive: false });
+  window.addEventListener('mouseup', onDragEnd);
+  window.addEventListener('touchend', onDragEnd);
   window.addEventListener('scroll', updateDiver, { passive: true });
   updateDiver();
 })();
