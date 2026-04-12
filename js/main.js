@@ -148,7 +148,7 @@
 
     const waText = [
       `Hola! Me llamo ${nombre}.`,
-      servicio !== 'Selecciona un servicio...' ? `Estoy interesado/a en: ${servicio}.` : '',
+      servicioEl.value ? `Estoy interesado/a en: ${servicio}.` : '',
       mensaje ? `Mensaje: ${mensaje}` : '',
       `Email: ${email}`,
     ].filter(Boolean).join('\n');
@@ -202,11 +202,14 @@
   const mapEl = document.getElementById('diving-map');
   if (!mapEl) return;
 
-  const DIFFICULTY_LABEL = {
-    beginner:     '🟢 Principiante',
-    intermediate: '🟡 Intermedio',
-    advanced:     '🔴 Avanzado',
-  };
+  function getDifficultyLabel(level) {
+    const key = {
+      beginner:     'map.difficulty.beginner',
+      intermediate: 'map.difficulty.intermediate',
+      advanced:     'map.difficulty.advanced',
+    }[level];
+    return key ? t(key) : level;
+  }
 
   const map = L.map('diving-map', {
     center: [42.288, 3.278],
@@ -247,7 +250,7 @@
 
     document.getElementById('spot-name').textContent = spot.name;
     document.getElementById('spot-description').textContent = spot.description;
-    document.getElementById('spot-difficulty').textContent = DIFFICULTY_LABEL[spot.difficulty] ?? spot.difficulty;
+    document.getElementById('spot-difficulty').textContent = getDifficultyLabel(spot.difficulty);
     document.getElementById('spot-depth').textContent = `⬇️ ${spot.depth}m`;
 
     const gallery = document.getElementById('spot-gallery');
@@ -262,7 +265,7 @@
         gallery.appendChild(img);
       });
     } else {
-      gallery.innerHTML = '<p class="spot-no-photos">Sin fotos todavía</p>';
+      gallery.innerHTML = `<p class="spot-no-photos">${t('map.no_photos')}</p>`;
     }
 
     // Update spot list active state
@@ -284,7 +287,7 @@
       item.dataset.id = spot.id;
       item.innerHTML = `
         <span class="spot-list-name">${spot.name}</span>
-        <span class="spot-list-meta">${DIFFICULTY_LABEL[spot.difficulty] ?? ''} · ${spot.depth}m</span>
+        <span class="spot-list-meta">${getDifficultyLabel(spot.difficulty)} · ${spot.depth}m</span>
       `;
       item.addEventListener('click', () => {
         map.setView([spot.latitude, spot.longitude], 15, { animate: true });
@@ -311,7 +314,7 @@
     .then(({ spots }) => {
       if (!spots || spots.length === 0) {
         document.getElementById('spots-loading').innerHTML =
-          '<div class="spots-empty-icon">📍</div><p>Próximamente</p>';
+          `<div class="spots-empty-icon">📍</div><p>${t('map.coming_soon')}</p>`;
         return;
       }
 
@@ -332,7 +335,7 @@
     })
     .catch(() => {
       document.getElementById('spots-loading').innerHTML =
-        '<div class="spots-empty-icon">⚠️</div><p>No se pudo cargar el mapa</p>';
+        `<div class="spots-empty-icon">⚠️</div><p>${t('map.load_error')}</p>`;
     });
 })();
 
