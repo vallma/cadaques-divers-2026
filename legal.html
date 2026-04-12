@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Aviso Legal, Política de Privacidad y Política de Cookies de Cadaqués Divers." />
+  <title>Aviso Legal – Cadaqués Divers</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    .legal-hero {
+      background: var(--ocean-deep);
+      padding: 120px 0 60px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .legal-hero h1 {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .legal-hero p {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.95rem;
+    }
+
+    .legal-nav {
+      background: var(--ocean-dark);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      position: sticky;
+      top: 72px;
+      z-index: 100;
+    }
+    .legal-nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+      display: flex;
+      gap: var(--space-lg);
+      overflow-x: auto;
+    }
+    .legal-nav a {
+      display: block;
+      padding: 1rem 0;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.88rem;
+      font-weight: 600;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    .legal-nav a:hover,
+    .legal-nav a.active {
+      color: var(--sand-dark);
+      border-bottom-color: var(--sand-dark);
+    }
+
+    .legal-body {
+      background: var(--off-white);
+      padding: var(--space-3xl) 0;
+    }
+    .legal-container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+    }
+
+    .legal-section {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl);
+      margin-bottom: var(--space-xl);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      scroll-margin-top: 140px;
+    }
+    .legal-section-tag {
+      display: inline-block;
+      background: rgba(245,158,11,0.1);
+      color: var(--sand-dark);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 1rem;
+    }
+    .legal-section h2 {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      color: var(--text-dark);
+      margin-bottom: var(--space-lg);
+    }
+    .legal-section h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ocean-dark);
+      margin: var(--space-lg) 0 var(--space-sm);
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--light-gray);
+    }
+    .legal-section p {
+      color: var(--dark-gray);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .legal-section ul {
+      margin: 0.5rem 0 1rem 1.5rem;
+      color: var(--dark-gray);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+    .legal-section ul li {
+      margin-bottom: 0.4rem;
+    }
+    .legal-data-box {
+      background: var(--light-gray);
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+      margin: var(--space-md) 0;
+    }
+    .legal-data-box p {
+      margin: 0;
+      display: flex;
+      gap: 0.5rem;
+      align-items: baseline;
+    }
+    .legal-data-box strong {
+      color: var(--text-dark);
+      min-width: 180px;
+      flex-shrink: 0;
+    }
+    .cookie-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-md) 0;
+      font-size: 0.88rem;
+    }
+    .cookie-table th {
+      background: var(--ocean-dark);
+      color: var(--white);
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-weight: 600;
+    }
+    .cookie-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--light-gray);
+      color: var(--dark-gray);
+      vertical-align: top;
+    }
+    .cookie-table tr:last-child td {
+      border-bottom: none;
+    }
+    .cookie-table tr:nth-child(even) td {
+      background: var(--off-white);
+    }
+
+    @media (max-width: 600px) {
+      .legal-section {
+        padding: var(--space-lg);
+      }
+      .legal-data-box strong {
+        min-width: auto;
+        display: block;
+      }
+      .cookie-table {
+        font-size: 0.78rem;
+      }
+      .cookie-table th,
+      .cookie-table td {
+        padding: 0.5rem 0.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="logo.png" alt="Cadaqués Divers" class="nav-logo-img" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#inicio" class="nav-link">Inicio</a></li>
+        <li><a href="index.html#inmersiones" class="nav-link">Inmersiones</a></li>
+        <li><a href="index.html#precios" class="nav-link">Precios</a></li>
+        <li><a href="index.html#entorno" class="nav-link">Entorno</a></li>
+        <li><a href="index.html#contacto" class="nav-link">Contacto</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="https://wa.me/34605336158" target="_blank" rel="noopener" class="btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+          <span>Reservar</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="legal-hero">
+    <div class="container">
+      <h1>Información Legal</h1>
+      <p>ALMA DE SAL 1 S.L.U. · Cadaqués Divers · CIF B55308027</p>
+    </div>
+  </div>
+
+  <!-- SECTION NAV -->
+  <div class="legal-nav">
+    <div class="legal-nav-inner">
+      <a href="#aviso-legal">Aviso Legal</a>
+      <a href="#privacidad">Política de Privacidad</a>
+      <a href="#cookies">Política de Cookies</a>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="legal-body">
+    <div class="legal-container">
+
+      <!-- ══ AVISO LEGAL ══ -->
+      <section class="legal-section" id="aviso-legal">
+        <span class="legal-section-tag">Aviso Legal</span>
+        <h2>Aviso Legal</h2>
+
+        <h3>Objeto y aceptación</h3>
+        <p>El presente aviso legal regula el uso de la web <strong>https://cadaquesdivers.com/</strong> y de la presente web, en adelante, LA WEB, que es de titularidad de ALMA DE SAL 1 S.L.U., en adelante, EL PROPIETARIO DE LA WEB.</p>
+        <p>La navegación por LA WEB atribuye la condición de usuario del mismo y supone la aceptación plena y sin reservas de todas y cada una de las disposiciones incluidas en este Aviso Legal, susceptibles de sufrir modificaciones.</p>
+        <p>El usuario está obligado a hacer un uso correcto de LA WEB conforme a la ley, la buena fe, el orden público, los usos del tráfico y el presente Aviso Legal. El usuario responderá frente al PROPIETARIO DE LA WEB o ante terceros por los daños y perjuicios que puedan surgir como consecuencia del incumplimiento de esta obligación.</p>
+
+        <h3>Identificación y comunicaciones</h3>
+        <p>El PROPIETARIO DE LA WEB, en cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y Comercio Electrónico (LSSICE), informa de los siguientes datos:</p>
+        <div class="legal-data-box">
+          <p><strong>Denominación social:</strong> ALMA DE SAL 1 S.L.U.</p>
+          <p><strong>Nombre comercial:</strong> CADAQUÉS DIVERS</p>
+          <p><strong>CIF:</strong> B55308027</p>
+          <p><strong>Domicilio social:</strong> C/ Des Garrofers, 12, 17488 – Cadaqués (Girona)</p>
+          <p><strong>Teléfono:</strong> 660 990 475</p>
+          <p><strong>Correo electrónico:</strong> cadaquesdivers@gmail.com</p>
+        </div>
+        <p>Todas las notificaciones y comunicaciones entre los usuarios y EL PROPIETARIO DE LA WEB se considerarán eficaces, a todos los efectos, cuando se lleven a cabo a través de correo postal o cualquier otro medio detallado anteriormente.</p>
+
+        <h3>Condiciones de acceso y uso</h3>
+        <p>LA WEB y sus servicios son de acceso libre y gratuito. No obstante, EL PROPIETARIO DE LA WEB puede condicionar el uso de algunos de los servicios ofrecidos a la previa cumplimentación del correspondiente formulario.</p>
+        <p>El usuario garantiza la autenticidad y actualidad de todos los datos que comunique y será único responsable de las manifestaciones falsas o inexactas que lleve a cabo.</p>
+        <p>El usuario se compromete a no utilizar los contenidos y servicios del portal para, entre otros:</p>
+        <ul>
+          <li>Difundir contenidos delictivos, violentos, pornográficos, racistas, xenófobos, ofensivos o contrarios a la ley o al orden público.</li>
+          <li>Introducir virus informáticos o realizar actuaciones que alteren, dañen o interrumpan los sistemas del PROPIETARIO DE LA WEB o de terceros.</li>
+          <li>Intentar acceder a áreas restringidas o a cuentas de otros usuarios.</li>
+          <li>Vulnerar derechos de propiedad intelectual o industrial.</li>
+          <li>Suplantar la identidad de otro usuario, de las administraciones públicas o de un tercero.</li>
+          <li>Enviar publicidad o comunicaciones comerciales no solicitadas.</li>
+        </ul>
+
+        <h3>Propiedad intelectual</h3>
+        <p>Todos los contenidos de LA WEB, incluyendo textos, fotografías, gráficos, imágenes, iconos, tecnología y software, así como su diseño gráfico y códigos fuente, constituyen una obra cuya propiedad pertenece al PROPIETARIO DE LA WEB, sin que puedan entenderse cedidos al usuario ninguno de los derechos de explotación sobre los mismos más allá de lo estrictamente necesario para el correcto uso de LA WEB.</p>
+        <p>Queda prohibida la distribución, modificación, cesión o comunicación pública de los contenidos sin autorización expresa del titular de los derechos de explotación.</p>
+
+        <h3>Exclusión de garantías y responsabilidad</h3>
+        <p>El contenido de este sitio web es de carácter general y tiene una finalidad meramente informativa. EL PROPIETARIO DE LA WEB excluye, hasta donde permite el ordenamiento jurídico, cualquier responsabilidad por daños y perjuicios derivados de:</p>
+        <ul>
+          <li>La imposibilidad de acceso a LA WEB o la falta de veracidad, exactitud o actualidad de los contenidos.</li>
+          <li>La presencia de virus u otros elementos en los contenidos que puedan producir alteraciones en los sistemas informáticos del usuario.</li>
+          <li>El incumplimiento de las leyes, la buena fe o el orden público como resultado del uso incorrecto de LA WEB.</li>
+        </ul>
+
+        <h3>Publicaciones</h3>
+        <p>La información facilitada a través de LA WEB no sustituye la publicidad legal de las leyes, normativas, planes y disposiciones generales. La información disponible debe entenderse como una guía sin propósito de validez legal.</p>
+      </section>
+
+      <!-- ══ POLÍTICA DE PRIVACIDAD ══ -->
+      <section class="legal-section" id="privacidad">
+        <span class="legal-section-tag">Privacidad</span>
+        <h2>Política de Privacidad</h2>
+
+        <h3>Responsable del tratamiento</h3>
+        <div class="legal-data-box">
+          <p><strong>Responsable:</strong> ALMA DE SAL 1 S.L.U. (Cadaqués Divers)</p>
+          <p><strong>CIF:</strong> B55308027</p>
+          <p><strong>Dirección:</strong> C/ Des Garrofers, 12, 17488 – Cadaqués (Girona)</p>
+          <p><strong>Contacto:</strong> cadaquesdivers@gmail.com</p>
+        </div>
+
+        <h3>Datos que recopilamos</h3>
+        <p>Únicamente recopilamos los datos personales que el usuario nos proporciona voluntariamente a través del formulario de contacto:</p>
+        <ul>
+          <li>Nombre y apellidos</li>
+          <li>Dirección de correo electrónico</li>
+          <li>Número de teléfono (si se facilita)</li>
+          <li>Mensaje con la consulta o solicitud de reserva</li>
+        </ul>
+        <p>No recogemos datos sensibles ni información de pago a través de este sitio web.</p>
+
+        <h3>Finalidad y base jurídica del tratamiento</h3>
+        <p>Los datos facilitados se tratan con las siguientes finalidades:</p>
+        <ul>
+          <li><strong>Atender consultas y reservas:</strong> base jurídica — ejecución de un precontrato o contrato (art. 6.1.b RGPD).</li>
+          <li><strong>Comunicaciones comerciales propias</strong> (si el usuario lo consiente): base jurídica — consentimiento del interesado (art. 6.1.a RGPD).</li>
+        </ul>
+
+        <h3>Conservación de los datos</h3>
+        <p>Los datos se conservarán durante el tiempo necesario para atender la consulta o gestionar la relación contractual, y posteriormente durante los plazos legalmente establecidos para atender posibles responsabilidades.</p>
+
+        <h3>Destinatarios</h3>
+        <p>Los datos no se ceden a terceros, salvo obligación legal. Las comunicaciones se gestionan a través de WhatsApp (Meta Platforms Ireland Ltd.) y correo electrónico, servicios sujetos a sus propias políticas de privacidad.</p>
+
+        <h3>Derechos del usuario</h3>
+        <p>El usuario puede ejercer en cualquier momento los siguientes derechos dirigiéndose a <strong>cadaquesdivers@gmail.com</strong>:</p>
+        <ul>
+          <li><strong>Acceso:</strong> conocer qué datos tratamos sobre usted.</li>
+          <li><strong>Rectificación:</strong> corregir datos inexactos o incompletos.</li>
+          <li><strong>Supresión:</strong> solicitar la eliminación de sus datos.</li>
+          <li><strong>Oposición:</strong> oponerse al tratamiento de sus datos.</li>
+          <li><strong>Limitación:</strong> solicitar la limitación del tratamiento.</li>
+          <li><strong>Portabilidad:</strong> recibir sus datos en formato estructurado.</li>
+        </ul>
+        <p>Tiene también derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD) en <a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>.</p>
+      </section>
+
+      <!-- ══ POLÍTICA DE COOKIES ══ -->
+      <section class="legal-section" id="cookies">
+        <span class="legal-section-tag">Cookies</span>
+        <h2>Política de Cookies</h2>
+
+        <p>La Web respeta su privacidad. A través de este sitio no se recogen ni procesan datos personales excepto los recogidos a través de los formularios de contacto y las cookies que se describen a continuación.</p>
+
+        <h3>¿Qué es una cookie?</h3>
+        <p>Una cookie es un fichero (pequeño archivo) que se descarga en su ordenador al acceder a determinadas páginas web, normalmente formado por letras y números, enviado por el servidor de nuestra web al archivo de cookies de su navegador.</p>
+
+        <h3>Utilidad de las cookies</h3>
+        <p>Las cookies son útiles por varios motivos. Desde un punto de vista técnico, permiten que las páginas web funcionen de forma ágil y adaptada a sus preferencias, almacenando información sobre sus hábitos de navegación y recordando su presencia al establecerse una nueva conexión. El principal propósito es presentar páginas web personalizadas que conviertan la visita en una experiencia individual y ajustada a sus preferencias.</p>
+
+        <h3>Tipos de cookies que utilizamos</h3>
+
+        <p><strong>Cookies de mejora del rendimiento</strong><br>
+        Conservan sus preferencias para ciertas herramientas o servicios para que no tenga que reconfigurarlos en cada visita. En este sitio se utiliza la cookie <code>cd_locale</code> para recordar el idioma seleccionado.</p>
+
+        <p><strong>Cookies de análisis estadístico</strong><br>
+        Permiten cuantificar el número de visitantes y analizar estadísticamente el uso que hacen los usuarios de nuestros servicios, con el fin de mejorar la oferta. Estas cookies pueden ser tratadas por terceros (Google Analytics).</p>
+
+        <p><strong>Cookies de geolocalización</strong><br>
+        Usadas para localizar geográficamente el dispositivo del usuario de forma totalmente anónima, con el fin de ofrecer contenidos y servicios más adecuados.</p>
+
+        <p><strong>Cookies de terceros</strong><br>
+        En algunas páginas pueden instalarse cookies de terceros que permiten gestionar y mejorar los servicios que estos ofrecen.</p>
+
+        <h3>Resumen de cookies activas</h3>
+        <table class="cookie-table">
+          <thead>
+            <tr>
+              <th>Cookie</th>
+              <th>Tipo</th>
+              <th>Proveedor</th>
+              <th>Finalidad</th>
+              <th>Duración</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>cd_locale</code></td>
+              <td>Rendimiento</td>
+              <td>Cadaqués Divers</td>
+              <td>Almacena el idioma seleccionado (ES, CA, EN, FR)</td>
+              <td>Persistente</td>
+            </tr>
+            <tr>
+              <td><code>_ga</code></td>
+              <td>Analítica</td>
+              <td>Google Analytics</td>
+              <td>Distingue usuarios únicos para estadísticas anónimas</td>
+              <td>2 años</td>
+            </tr>
+            <tr>
+              <td><code>_ga_*</code></td>
+              <td>Analítica</td>
+              <td>Google Analytics</td>
+              <td>Mantiene el estado de la sesión de análisis</td>
+              <td>2 años</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>¿Cómo puedo configurar mis preferencias?</h3>
+        <p>Puede permitir, bloquear o eliminar las cookies instaladas en su equipo mediante la configuración de las opciones de su navegador de internet. En caso de bloquearlas, es posible que ciertos servicios no estén disponibles. A continuación encontrará enlaces para gestionar cookies en los principales navegadores:</p>
+        <ul>
+          <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a></li>
+          <li><a href="https://support.mozilla.org/es/kb/cookies-informacion-que-los-sitios-web-guardan-en-" target="_blank" rel="noopener">Mozilla Firefox</a></li>
+          <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Safari</a></li>
+          <li><a href="https://support.microsoft.com/es-es/windows/eliminar-y-administrar-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener">Microsoft Edge / Internet Explorer</a></li>
+        </ul>
+        <p>Si desea contactar con nosotros respecto a nuestra política de cookies, puede consultar nuestros datos de contacto en el <a href="#aviso-legal">Aviso Legal</a>.</p>
+        <p><strong>Última actualización:</strong> abril de 2026.</p>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="logo.png" alt="Cadaqués Divers" style="height:36px;margin-bottom:0.5rem;" />
+            <span>Cadaqués<strong>Divers</strong></span>
+          </div>
+          <p>Centro de buceo PADI 5 estrellas en el corazón de Cadaqués. Exploramos el mar con pasión y respeto.</p>
+          <div class="footer-social">
+            <a href="https://instagram.com/cadaques.divers" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/34605336158" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Servicios</h4>
+          <ul>
+            <li><a href="index.html#inmersiones">Bautizo de Buceo</a></li>
+            <li><a href="index.html#inmersiones">Cursos PADI</a></li>
+            <li><a href="index.html#inmersiones">Excursiones Guiadas</a></li>
+            <li><a href="index.html#inmersiones">Snorkel</a></li>
+            <li><a href="index.html#inmersiones">Paddle Surf</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="legal.html#aviso-legal">Aviso Legal</a></li>
+            <li><a href="legal.html#privacidad">Política de Privacidad</a></li>
+            <li><a href="legal.html#cookies">Política de Cookies</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contacto</h4>
+          <div class="footer-contact-item">
+            <i class="fab fa-whatsapp"></i>
+            <a href="https://wa.me/34605336158">+34 605 33 61 58</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fab fa-instagram"></i>
+            <a href="https://instagram.com/cadaques.divers" target="_blank" rel="noopener">@cadaques.divers</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Plaça del Doctor Pont, 6-8B<br />Cadaqués, 17488</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Cadaqués Divers. Todos los derechos reservados.</p>
+        <div class="footer-certifications">
+          <span class="cert-badge">PADI 5 ★</span>
+          <span class="cert-badge">CRESSI</span>
+          <span class="cert-badge">Cap de Creus</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      toggle.classList.toggle('active', isOpen);
+    });
+
+    // Highlight active legal nav link on scroll
+    const sections = document.querySelectorAll('.legal-section');
+    const legalLinks = document.querySelectorAll('.legal-nav a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 160) current = s.id;
+      });
+      legalLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+      });
+    });
+  </script>
+</body>
+</html>

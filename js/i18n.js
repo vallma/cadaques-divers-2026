@@ -108,7 +108,7 @@ const TRANSLATIONS = {
     'pdl.d4': 'Todos los niveles',
 
     // Precios
-    'precio.tag': 'Tarifas 2025',
+    'precio.tag': 'Tarifas 2026',
     'precio.title': 'Precios transparentes',
     'precio.subtitle': 'Sin sorpresas. Precios directos, sin intermediarios. Descuentos para grupos y bonos de inmersiones.',
     'precio.note': 'Suplemento por material extra: 5€. Precios por persona. Consulta disponibilidad y descuentos para grupos por WhatsApp.',
@@ -278,7 +278,7 @@ const TRANSLATIONS = {
     'pdl.d3': 'Cap de Creus coves',
     'pdl.d4': 'All levels',
 
-    'precio.tag': '2025 Rates',
+    'precio.tag': '2026 Rates',
     'precio.title': 'Transparent prices',
     'precio.subtitle': 'No surprises. Direct prices, no middlemen. Discounts for groups and dive packages.',
     'precio.note': 'Extra equipment supplement: €5. Prices per person. Ask about availability and group discounts on WhatsApp.',
@@ -443,7 +443,7 @@ const TRANSLATIONS = {
     'pdl.d3': 'Criques du Cap de Creus',
     'pdl.d4': 'Tous niveaux',
 
-    'precio.tag': 'Tarifs 2025',
+    'precio.tag': 'Tarifs 2026',
     'precio.title': 'Prix transparents',
     'precio.subtitle': 'Pas de surprises. Prix directs, sans intermédiaires. Réductions pour les groupes et les forfaits de plongées.',
     'precio.note': 'Supplément matériel extra : 5€. Prix par personne. Renseignez-vous sur les disponibilités et les réductions de groupe par WhatsApp.',
@@ -608,7 +608,7 @@ const TRANSLATIONS = {
     'pdl.d3': 'Cales del Cap de Creus',
     'pdl.d4': 'Tots els nivells',
 
-    'precio.tag': 'Tarifes 2025',
+    'precio.tag': 'Tarifes 2026',
     'precio.title': 'Preus transparents',
     'precio.subtitle': 'Sense sorpreses. Preus directes, sense intermediaris. Descomptes per a grups i bons d\'immersions.',
     'precio.note': 'Suplement per material extra: 5€. Preus per persona. Consulta disponibilitat i descomptes per a grups per WhatsApp.',
