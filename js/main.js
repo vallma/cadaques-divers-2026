@@ -309,7 +309,7 @@
     showSpotDetail(spot);
   }
 
-  fetch(`${window.BACKEND_URL}/api/diving-spots`)
+  fetch('data/diving-spots.json')
     .then(r => r.json())
     .then(({ spots }) => {
       if (!spots || spots.length === 0) {

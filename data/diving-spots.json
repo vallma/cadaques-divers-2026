@@ -1,0 +1,104 @@
+{
+  "spots": [
+    {
+      "id": "cmnrom0c600004lfd8qmgr70i",
+      "name": "El Gat",
+      "description": "El punto de buceo más famoso del Cap de Creus. Peñasco submarino en la punta del Cap Norfeu con una rica vida marina: morenas, pulpos, estrellas de mar y ocasionalmente meros. Paredes verticales llenas de gorgonias.",
+      "latitude": 42.2681,
+      "longitude": 3.2228,
+      "depth": 40,
+      "difficulty": "advanced",
+      "photos": []
+    },
+    {
+      "id": "cmnrom71v00014lfd91bpns1g",
+      "name": "Massa d'Or",
+      "description": "Considerado el mejor buceo de la Costa Brava. Cañón submarino espectacular con paredes cubiertas de coral rojo y grandes gorgonias. Aguas cristalinas en la zona más protegida del Parque Natural. Para buceadores con experiencia.",
+      "latitude": 42.3167,
+      "longitude": 3.3119,
+      "depth": 40,
+      "difficulty": "advanced",
+      "photos": []
+    },
+    {
+      "id": "cmnrom9s000024lfdxknjnuhv",
+      "name": "Bau de Cap Trencat",
+      "description": "Peñasco marino en la zona norte del Cap de Creus. Ideal para principiantes y buceadores de nivel medio. Abundante fauna mediterránea: castañuelas, sargos y espáridos. Buena visibilidad la mayor parte del año.",
+      "latitude": 42.3185,
+      "longitude": 3.3142,
+      "depth": 30,
+      "difficulty": "intermediate",
+      "photos": []
+    },
+    {
+      "id": "cmnromcly00034lfd2w6a6jgp",
+      "name": "Bau de la Ferrera",
+      "description": "Roca submarina cerca de Cadaqués con fondo arenoso y paredes rocosas. Perfecta para avistamiento de peces planos, pulpos y congrios. Accesible desde embarcación; los vientos del norte permiten la inmersión cuando otros puntos están cerrados.",
+      "latitude": 42.2903,
+      "longitude": 3.2958,
+      "depth": 30,
+      "difficulty": "intermediate",
+      "photos": []
+    },
+    {
+      "id": "cmnromh6400044lfdfpiodl1h",
+      "name": "El Bisbe (Punta del Fraile)",
+      "description": "Inmersión en la cara sur del Cap Norfeu con un paisaje submarino dramático. Grandes bloques de roca cubiertos de algas y fauna variada. Se avistan frecuentemente dentones, meros y cormoranes buceando cerca de la superficie.",
+      "latitude": 42.2725,
+      "longitude": 3.2188,
+      "depth": 35,
+      "difficulty": "intermediate",
+      "photos": []
+    },
+    {
+      "id": "cmnromk5j00054lfd6hlpfohq",
+      "name": "El Clot del Boc",
+      "description": "Cañón poco profundo cerca de Cala Jóncols, ideal para principiantes y snorkel avanzado. Aguas de una transparencia excepcional con fondos de Posidonia y roca. Ideal para bautismos de buceo y primeras inmersiones.",
+      "latitude": 42.2618,
+      "longitude": 3.1982,
+      "depth": 30,
+      "difficulty": "beginner",
+      "photos": []
+    },
+    {
+      "id": "cmnromml300064lfdchgh45fr",
+      "name": "Cova del Pelegrí",
+      "description": "Cueva marina accesible a distintas profundidades con formaciones rocosas espectaculares. Dentro se pueden observar gambas, bogavantes y otras especies cavernícolas. Luz natural que penetra creando efectos visuales únicos.",
+      "latitude": 42.2648,
+      "longitude": 3.2052,
+      "depth": 30,
+      "difficulty": "intermediate",
+      "photos": []
+    },
+    {
+      "id": "cmnromsfu00074lfd9ygvl7su",
+      "name": "La Reparada",
+      "description": "Punto de buceo tranquilo cerca de Cadaqués con fondos mixtos de roca y arena. Zona habitual de descanso de focas monje en el pasado; hoy hogar de pulpos, espáridos y morenas. Buenas condiciones incluso con mar de levante.",
+      "latitude": 42.2851,
+      "longitude": 3.2887,
+      "depth": 30,
+      "difficulty": "beginner",
+      "photos": []
+    },
+    {
+      "id": "cmnromvgj00084lfdkdoe33h9",
+      "name": "Punta Falconera",
+      "description": "Promontorio rocoso entre Roses y el Cap Norfeu con fuertes corrientes que alimentan una fauna excepcional. Grandes bancos de barracudas, peces luna y rorcuales en temporada. Para buceadores con experiencia en corriente.",
+      "latitude": 42.2528,
+      "longitude": 3.1752,
+      "depth": 45,
+      "difficulty": "advanced",
+      "photos": []
+    },
+    {
+      "id": "cmnromwsj00094lfdbtih3zvy",
+      "name": "El Salt del Boc",
+      "description": "Pared vertical justo en la entrada de Cala Jóncols, perfecta para todos los niveles. Las corrientes suaves traen nutrientes que alimentan una abundante vida marina. Zona frecuentada por rascacios, sargos y salmonetes.",
+      "latitude": 42.258,
+      "longitude": 3.1925,
+      "depth": 20,
+      "difficulty": "beginner",
+      "photos": []
+    }
+  ]
+}
