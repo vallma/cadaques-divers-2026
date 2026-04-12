@@ -347,7 +347,7 @@
   let isDragging = false;
 
   function getRange() {
-    return window.innerHeight - TOP_MIN - BOTTOM_PAD - diver.offsetHeight;
+    return Math.max(0, window.innerHeight - TOP_MIN - BOTTOM_PAD - diver.offsetHeight);
   }
 
   function updateDiver() {
@@ -396,6 +396,8 @@
   }, { passive: true });
 
   function swimTo(pct) {
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    if (docH <= 0) return;
     const range = getRange();
     const targetTop = TOP_MIN + Math.max(0, Math.min(1, pct)) * range;
     diver.style.transition = 'top 0.7s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.3s ease';
