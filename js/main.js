@@ -460,6 +460,38 @@
   });
 })();
 
+// ── Cookie Consent ───────────────────────────────
+(function initCookieConsent() {
+  const STORAGE_KEY = 'cd_cookie_consent';
+  const banner = document.getElementById('cookieBanner');
+
+  function enableAnalytics() {
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+    }
+  }
+
+  function saveChoice(accepted) {
+    localStorage.setItem(STORAGE_KEY, accepted ? 'accepted' : 'rejected');
+    banner.hidden = true;
+    if (accepted) enableAnalytics();
+  }
+
+  // Already decided in a previous visit
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (saved === 'accepted') {
+    enableAnalytics();
+    return;
+  }
+  if (saved === 'rejected') return;
+
+  // First visit — show banner after a short delay
+  setTimeout(() => { banner.hidden = false; }, 800);
+
+  document.getElementById('cookieAccept').addEventListener('click', () => saveChoice(true));
+  document.getElementById('cookieReject').addEventListener('click', () => saveChoice(false));
+})();
+
 // ── Analytics ────────────────────────────────────
 (function initAnalytics() {
   function sendEvent(name, params) {

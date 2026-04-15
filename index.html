@@ -1003,16 +1003,36 @@
     </div>
   </div>
 
+  <!-- Cookie consent banner -->
+  <div id="cookieBanner" class="cookie-banner" role="dialog" aria-label="Consentimiento de cookies" aria-live="polite" hidden>
+    <div class="cookie-banner__inner">
+      <p class="cookie-banner__text">
+        Usamos cookies analíticas para mejorar tu experiencia. Podés aceptarlas o rechazarlas.
+        <a href="legal.html#cookies" class="cookie-banner__link">Más información</a>
+      </p>
+      <div class="cookie-banner__actions">
+        <button id="cookieReject" class="cookie-banner__btn cookie-banner__btn--reject">Rechazar</button>
+        <button id="cookieAccept" class="cookie-banner__btn cookie-banner__btn--accept">Aceptar</button>
+      </div>
+    </div>
+  </div>
+
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 
-  <!-- Google Analytics -->
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-41KN09H1M3"></script>
+  <!-- Google Analytics (carga solo con consentimiento) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      wait_for_update: 500
+    });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-41KN09H1M3"></script>
+  <script>
     gtag('js', new Date());
     gtag('config', 'G-41KN09H1M3');
   </script>
