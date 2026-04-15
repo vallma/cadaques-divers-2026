@@ -459,3 +459,57 @@
     });
   });
 })();
+
+// ── Analytics ────────────────────────────────────
+(function initAnalytics() {
+  function sendEvent(name, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', name, params);
+    }
+  }
+
+  // WhatsApp button clicks
+  const waButtons = [
+    { selector: 'a[href*="wa.me"][href*="bautizo"]',     service: 'bautizo' },
+    { selector: 'a[href*="wa.me"][href*="Open%20Water"]', service: 'open_water' },
+    { selector: 'a[href*="wa.me"][href*="Advanced"]',     service: 'advanced_open_water' },
+    { selector: 'a[href*="wa.me"][href*="Rescue"]',       service: 'rescue_diver' },
+    { selector: 'a[href*="wa.me"][href*="Divemaster"]',   service: 'divemaster' },
+    { selector: 'a[href*="wa.me"][href*="excursiones"]',  service: 'excursiones' },
+    { selector: 'a[href*="wa.me"][href*="snorkel"]',      service: 'snorkel' },
+    { selector: 'a[href*="wa.me"][href*="Paddle"]',       service: 'paddle_surf' },
+    { selector: 'a[href*="wa.me"][href*="inmersi"]',      service: 'inmersion' },
+  ];
+
+  waButtons.forEach(({ selector, service }) => {
+    document.querySelectorAll(selector).forEach(el => {
+      el.addEventListener('click', () => {
+        sendEvent('whatsapp_click', { service });
+      });
+    });
+  });
+
+  // Nav WhatsApp button (Reservar)
+  document.querySelectorAll('.btn-whatsapp').forEach(el => {
+    el.addEventListener('click', () => {
+      sendEvent('whatsapp_click', { service: 'nav_reservar' });
+    });
+  });
+
+  // Contact form WhatsApp redirect
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', () => {
+      const servicioEl = document.getElementById('servicio');
+      const service = servicioEl ? servicioEl.value || 'general' : 'general';
+      sendEvent('whatsapp_click', { service: 'form_' + service });
+    });
+  }
+
+  // Language change
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    el.addEventListener('click', () => {
+      sendEvent('language_change', { lang: el.dataset.lang });
+    });
+  });
+})();
