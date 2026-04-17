@@ -1759,6 +1759,21 @@ input, textarea, select {
   font-size: 0.85rem;
 }
 
+.footer-dev {
+  color: var(--mid-gray);
+  font-size: 0.8rem;
+}
+
+.footer-dev a {
+  color: var(--mid-gray);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-dev a:hover {
+  color: var(--ocean-teal);
+}
+
 .footer-certifications {
   display: flex;
   gap: 0.5rem;
