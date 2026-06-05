@@ -183,6 +183,35 @@
   });
 })();
 
+// ── Tab-aware anchor navigation ──────────────────
+(function initTabAnchorNav() {
+  const TAB_ANCHORS = {
+    'inmersiones-excursiones': { section: 'inmersiones', tab: 'excursiones' },
+    'inmersiones-snorkel':     { section: 'inmersiones', tab: 'snorkel' },
+  };
+
+  function activateTabAnchor(hash) {
+    const key = hash.replace('#', '');
+    const mapping = TAB_ANCHORS[key];
+    if (!mapping) return false;
+
+    const section = document.getElementById(mapping.section);
+    const tabBtn = document.querySelector(`.tab-btn[data-tab="${mapping.tab}"]`);
+    if (!section || !tabBtn) return false;
+
+    tabBtn.click();
+    setTimeout(() => section.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+    return true;
+  }
+
+  document.querySelectorAll(`a[href^="#inmersiones-"]`).forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const href = anchor.getAttribute('href');
+      if (activateTabAnchor(href)) e.preventDefault();
+    });
+  });
+})();
+
 // ── Hero parallax (subtle) ───────────────────────
 (function initParallax() {
   const heroBg = document.querySelector('.hero-bg');
