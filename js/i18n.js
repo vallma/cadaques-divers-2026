@@ -59,7 +59,7 @@ const TRANSLATIONS = {
     'bautizo.cta': 'Reservar ahora',
     'bautizo.d1': '~2 horas en total',
     'bautizo.d2': 'Hasta 10m de profundidad',
-    'bautizo.d3': 'Cala Nans, Cadaqués',
+    'bautizo.d3': 'Los mejores sitios del Cap de Creus',
     'bautizo.d4': 'Disponible todo el año',
 
     // Tab excursiones
@@ -354,7 +354,7 @@ const TRANSLATIONS = {
     'bautizo.cta': 'Book now',
     'bautizo.d1': '~2 hours total',
     'bautizo.d2': 'Up to 10m depth',
-    'bautizo.d3': 'Cala Nans, Cadaqués',
+    'bautizo.d3': 'The best dive sites in Cap de Creus',
     'bautizo.d4': 'Available year-round',
 
     'exc.badge': 'Cap de Creus',
@@ -625,7 +625,7 @@ const TRANSLATIONS = {
     'bautizo.cta': 'Réserver maintenant',
     'bautizo.d1': '~2 heures au total',
     'bautizo.d2': "Jusqu'à 10m de profondeur",
-    'bautizo.d3': 'Cala Nans, Cadaqués',
+    'bautizo.d3': 'Les meilleurs sites du Cap de Creus',
     'bautizo.d4': "Disponible toute l'année",
 
     'exc.badge': 'Cap de Creus',
@@ -896,7 +896,7 @@ const TRANSLATIONS = {
     'bautizo.cta': 'Reservar ara',
     'bautizo.d1': '~2 hores en total',
     'bautizo.d2': 'Fins a 10m de profunditat',
-    'bautizo.d3': 'Cala Nans, Cadaqués',
+    'bautizo.d3': 'Els millors llocs del Cap de Creus',
     'bautizo.d4': 'Disponible tot l\'any',
 
     'exc.badge': 'Cap de Creus',
