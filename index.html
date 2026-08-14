@@ -6,8 +6,9 @@
   <!--
     Content Security Policy — limita de dónde puede cargar recursos el navegador.
     Sin 'unsafe-inline' en script-src: todo el JS vive en archivos externos, de modo
-    que un script inyectado no se ejecutaría. Nota: frame-ancestors no funciona vía
-    <meta>; requiere cabecera HTTP (GitHub Pages no las permite).
+    que un script inyectado no se ejecutaría.
+    frame-ancestors no funciona vía <meta>; se declara como cabecera HTTP en el
+    archivo /_headers de la raíz (Cloudflare Pages).
   -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
@@ -26,16 +27,26 @@
   <meta name="description" content="Cadaqués Divers – Centro de buceo PADI 5 estrellas en Cadaqués. Bautizos, cursos, excursiones en el Parque Natural Cap de Creus." />
   <title>Cadaqués Divers – Let's Explore the Sea</title>
 
+  <!-- Dominio canónico: evita que se reparta el posicionamiento con vallma.github.io -->
+  <link rel="canonical" href="https://cadaquesdivers.com/" />
+
   <!-- Open Graph / Social -->
-  <meta property="og:type"        content="website" />
-  <meta property="og:url"         content="https://cadaquesdivers.github.io/cadaques-divers-2026/" />
-  <meta property="og:title"       content="Cadaqués Divers – Let's Explore the Sea" />
-  <meta property="og:description" content="Centro de buceo PADI 5 estrellas en Cadaqués. Bautizos, cursos y excursiones en el Parque Natural Cap de Creus." />
-  <meta property="og:image"       content="https://cadaquesdivers.github.io/cadaques-divers-2026/img/og-cover.jpg" />
-  <meta name="twitter:card"       content="summary_large_image" />
-  <meta name="twitter:title"      content="Cadaqués Divers – Let's Explore the Sea" />
-  <meta name="twitter:description" content="Centro de buceo PADI 5 estrellas en Cadaqués. Bautizos, cursos y excursiones en el Parque Natural Cap de Creus." />
-  <meta name="twitter:image"      content="https://cadaquesdivers.github.io/cadaques-divers-2026/img/og-cover.jpg" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:site_name"     content="Cadaqués Divers" />
+  <meta property="og:locale"        content="es_ES" />
+  <meta property="og:url"           content="https://cadaquesdivers.com/" />
+  <meta property="og:title"         content="Cadaqués Divers – Let's Explore the Sea" />
+  <meta property="og:description"   content="Centro de buceo PADI 5 estrellas en Cadaqués. Bautizos, cursos y excursiones en el Parque Natural Cap de Creus." />
+  <meta property="og:image"         content="https://cadaquesdivers.com/img/og-cover.jpg" />
+  <!-- Dimensiones explícitas: WhatsApp y Facebook pintan la vista previa sin esperar a descargar la imagen -->
+  <meta property="og:image:width"   content="1200" />
+  <meta property="og:image:height"  content="630" />
+  <meta property="og:image:alt"     content="Embarcación de Cadaqués Divers con equipos de buceo en la bahía de Cadaqués" />
+  <meta name="twitter:card"         content="summary_large_image" />
+  <meta name="twitter:title"        content="Cadaqués Divers – Let's Explore the Sea" />
+  <meta name="twitter:description"  content="Centro de buceo PADI 5 estrellas en Cadaqués. Bautizos, cursos y excursiones en el Parque Natural Cap de Creus." />
+  <meta name="twitter:image"        content="https://cadaquesdivers.com/img/og-cover.jpg" />
+  <meta name="twitter:image:alt"    content="Embarcación de Cadaqués Divers con equipos de buceo en la bahía de Cadaqués" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />

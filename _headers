@@ -1,0 +1,31 @@
+# ═══════════════════════════════════════════════════
+#  Cabeceras de seguridad — Cloudflare Pages
+#  ───────────────────────────────────────────────────
+#  Complementan a la CSP declarada en el <meta> de cada HTML.
+#  Reparto de responsabilidades:
+#    · El <meta> define QUÉ recursos puede cargar la página.
+#    · Este archivo define QUIÉN puede embeber la página y el
+#      resto de políticas que sólo funcionan como cabecera HTTP.
+# ═══════════════════════════════════════════════════
+
+/*
+  # Anti-clickjacking. frame-ancestors es ignorado en <meta>, por eso va aquí.
+  # X-Frame-Options se mantiene como respaldo para navegadores antiguos.
+  Content-Security-Policy: frame-ancestors 'none'
+  X-Frame-Options: DENY
+
+  # Impide que el navegador adivine el tipo MIME y ejecute como script
+  # algo servido como texto o imagen.
+  X-Content-Type-Options: nosniff
+
+  # No filtrar la URL completa a sitios externos (los enlaces salientes
+  # a WhatsApp e Instagram sólo verán el dominio, no la ruta).
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # La web no usa ninguna de estas APIs: se deniegan por completo.
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=()
+
+  # Forzar HTTPS durante un año.
+  # NOTA: sin includeSubDomains a propósito. Añadirlo sólo tras confirmar
+  # que TODOS los subdominios sirven HTTPS, o dejarían de ser accesibles.
+  Strict-Transport-Security: max-age=31536000
