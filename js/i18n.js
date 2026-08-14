@@ -165,6 +165,7 @@ const TRANSLATIONS = {
     'form.servicio.default': 'Selecciona un servicio...',
     'form.mensaje': 'Mensaje',
     'form.mensaje.ph': 'Cuéntanos qué necesitas, fechas, número de personas...',
+    'form.privacidad': 'He leído y acepto la <a href="legal.html#privacidad" target="_blank" rel="noopener">Política de Privacidad</a>. Tus datos se envían por WhatsApp para responder a tu consulta.',
     'form.submit': 'Enviar mensaje',
     'form.success.title': '¡Mensaje enviado!',
     'form.success.desc': 'Te respondemos en breve, normalmente en menos de 24 horas.',
@@ -174,6 +175,7 @@ const TRANSLATIONS = {
     'footer.services': 'Servicios',
     'footer.info': 'Información',
     'footer.contact': 'Contacto',
+    'footer.cookie_settings': 'Gestionar cookies',
     'footer.rights': '© 2026 Cadaqués Divers. Todos los derechos reservados.',
 
     // Mapa — dificultad y mensajes
@@ -452,6 +454,7 @@ const TRANSLATIONS = {
     'form.servicio.default': 'Select a service...',
     'form.mensaje': 'Message',
     'form.mensaje.ph': 'Tell us what you need, dates, number of people...',
+    'form.privacidad': 'I have read and accept the <a href="legal.html#privacidad" target="_blank" rel="noopener">Privacy Policy</a>. Your details are sent via WhatsApp so we can answer your enquiry.',
     'form.submit': 'Send message',
     'form.success.title': 'Message sent!',
     'form.success.desc': "We'll get back to you shortly, usually within 24 hours.",
@@ -460,6 +463,7 @@ const TRANSLATIONS = {
     'footer.services': 'Services',
     'footer.info': 'Information',
     'footer.contact': 'Contact',
+    'footer.cookie_settings': 'Cookie settings',
     'footer.rights': '© 2026 Cadaqués Divers. All rights reserved.',
 
     'map.difficulty.beginner':     '🟢 Beginner',
@@ -722,6 +726,7 @@ const TRANSLATIONS = {
     'form.servicio.default': 'Sélectionnez un service...',
     'form.mensaje': 'Message',
     'form.mensaje.ph': 'Dites-nous ce dont vous avez besoin, les dates, le nombre de personnes...',
+    'form.privacidad': "J'ai lu et j'accepte la <a href=\"legal.html#privacidad\" target=\"_blank\" rel=\"noopener\">Politique de Confidentialité</a>. Vos données sont envoyées via WhatsApp afin de répondre à votre demande.",
     'form.submit': 'Envoyer le message',
     'form.success.title': 'Message envoyé !',
     'form.success.desc': "Nous vous répondrons dans les plus brefs délais, généralement en moins de 24 heures.",
@@ -730,6 +735,7 @@ const TRANSLATIONS = {
     'footer.services': 'Services',
     'footer.info': 'Informations',
     'footer.contact': 'Contact',
+    'footer.cookie_settings': 'Gérer les cookies',
     'footer.rights': '© 2026 Cadaqués Divers. Tous droits réservés.',
 
     'map.difficulty.beginner':     '🟢 Débutant',
@@ -992,6 +998,7 @@ const TRANSLATIONS = {
     'form.servicio.default': 'Selecciona un servei...',
     'form.mensaje': 'Missatge',
     'form.mensaje.ph': 'Explica\'ns què necessites, dates, nombre de persones...',
+    'form.privacidad': 'He llegit i accepto la <a href="legal.html#privacidad" target="_blank" rel="noopener">Política de Privacitat</a>. Les teves dades s\'envien per WhatsApp per respondre la teva consulta.',
     'form.submit': 'Enviar missatge',
     'form.success.title': 'Missatge enviat!',
     'form.success.desc': 'Et responem aviat, normalment en menys de 24 hores.',
@@ -1000,6 +1007,7 @@ const TRANSLATIONS = {
     'footer.services': 'Serveis',
     'footer.info': 'Informació',
     'footer.contact': 'Contacte',
+    'footer.cookie_settings': 'Gestionar galetes',
     'footer.rights': '© 2026 Cadaqués Divers. Tots els drets reservats.',
 
     'map.difficulty.beginner':     '🟢 Principiant',
@@ -1111,7 +1119,15 @@ const TRANSLATIONS = {
 }
 
 // ── Motor i18n ────────────────────────────────────────────────────────────────
-let currentLocale = localStorage.getItem('cd_locale') || 'es'
+const SUPPORTED_LOCALES = ['es', 'en', 'fr', 'ca']
+const DEFAULT_LOCALE = 'es'
+
+// localStorage es una fuente que no controlamos: validar antes de confiar
+function resolveLocale(lang) {
+  return SUPPORTED_LOCALES.includes(lang) ? lang : DEFAULT_LOCALE
+}
+
+let currentLocale = resolveLocale(localStorage.getItem('cd_locale'))
 
 function t(key) {
   return TRANSLATIONS[currentLocale][key] || TRANSLATIONS['es'][key] || key
@@ -1140,8 +1156,8 @@ function applyTranslations() {
 }
 
 function switchLocale(lang) {
-  currentLocale = lang
-  localStorage.setItem('cd_locale', lang)
+  currentLocale = resolveLocale(lang)
+  localStorage.setItem('cd_locale', currentLocale)
   applyTranslations()
 }
 

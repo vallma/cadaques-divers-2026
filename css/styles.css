@@ -1596,6 +1596,35 @@ input, textarea, select {
   min-height: 100px;
 }
 
+/* Consentimiento RGPD — fuera de .form-group para no heredar el input full-width */
+.form-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: var(--space-sm);
+}
+
+.form-consent input[type="checkbox"] {
+  flex-shrink: 0;
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-top: 0.15rem;
+  accent-color: var(--ocean-blue);
+  cursor: pointer;
+}
+
+.form-consent label {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--dark-gray);
+  cursor: pointer;
+}
+
+.form-consent label a {
+  color: var(--ocean-blue);
+  text-decoration: underline;
+}
+
 .form-success {
   display: none;
   text-align: center;

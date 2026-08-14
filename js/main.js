@@ -231,6 +231,17 @@
   const mapEl = document.getElementById('diving-map');
   if (!mapEl) return;
 
+  // Solo permitimos http(s) y rutas relativas: bloquea javascript: y data:
+  function isSafeImageUrl(url) {
+    if (typeof url !== 'string' || url === '') return false;
+    try {
+      const parsed = new URL(url, window.location.href);
+      return parsed.protocol === 'http:' || parsed.protocol === 'https:';
+    } catch {
+      return false;
+    }
+  }
+
   function getDifficultyLabel(level) {
     const key = {
       beginner:     'map.difficulty.beginner',
@@ -286,6 +297,7 @@
     gallery.innerHTML = '';
     if (spot.photos && spot.photos.length > 0) {
       spot.photos.forEach(photo => {
+        if (!isSafeImageUrl(photo.url)) return;
         const img = document.createElement('img');
         img.src = photo.url;
         img.alt = photo.caption ?? spot.name;
@@ -314,10 +326,16 @@
       const item = document.createElement('div');
       item.className = 'spot-list-item';
       item.dataset.id = spot.id;
-      item.innerHTML = `
-        <span class="spot-list-name">${spot.name}</span>
-        <span class="spot-list-meta">${getDifficultyLabel(spot.difficulty)} · ${spot.depth}m</span>
-      `;
+
+      const name = document.createElement('span');
+      name.className = 'spot-list-name';
+      name.textContent = spot.name;
+
+      const meta = document.createElement('span');
+      meta.className = 'spot-list-meta';
+      meta.textContent = `${getDifficultyLabel(spot.difficulty)} · ${spot.depth}m`;
+
+      item.append(name, meta);
       item.addEventListener('click', () => {
         map.setView([spot.latitude, spot.longitude], 15, { animate: true });
         selectMarker(spot);
@@ -443,7 +461,8 @@
     const btn = e.currentTarget;
     const href = btn.getAttribute('href');
 
-    if (href && href.startsWith('#')) {
+    // '#' a secas no es un selector válido para querySelector
+    if (href && href.startsWith('#') && href.length > 1) {
       const target = document.querySelector(href);
       if (target) {
         const docH = document.documentElement.scrollHeight - window.innerHeight;
@@ -493,11 +512,26 @@
 (function initCookieConsent() {
   const STORAGE_KEY = 'cd_cookie_consent';
   const banner = document.getElementById('cookieBanner');
+  if (!banner) return;
 
+  let analyticsLoaded = false;
+
+  // Descarga Google Analytics sólo tras el consentimiento explícito
   function enableAnalytics() {
-    if (typeof gtag === 'function') {
-      gtag('consent', 'update', { analytics_storage: 'granted' });
-    }
+    if (analyticsLoaded) return;
+    analyticsLoaded = true;
+
+    gtag('consent', 'update', {
+      analytics_storage: 'granted',
+    });
+
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${window.GA_MEASUREMENT_ID}`;
+    document.head.appendChild(script);
+
+    gtag('js', new Date());
+    gtag('config', window.GA_MEASUREMENT_ID);
   }
 
   function saveChoice(accepted) {
@@ -506,7 +540,18 @@
     if (accepted) enableAnalytics();
   }
 
-  // Already decided in a previous visit
+  document.getElementById('cookieAccept').addEventListener('click', () => saveChoice(true));
+  document.getElementById('cookieReject').addEventListener('click', () => saveChoice(false));
+
+  // Retirar el consentimiento debe ser tan fácil como darlo (RGPD art. 7.3)
+  document.querySelectorAll('[data-cookie-settings]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      banner.hidden = false;
+    });
+  });
+
+  // Decisión tomada en una visita anterior
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved === 'accepted') {
     enableAnalytics();
@@ -514,11 +559,8 @@
   }
   if (saved === 'rejected') return;
 
-  // First visit — show banner after a short delay
+  // Primera visita — mostrar el banner tras un breve retardo
   setTimeout(() => { banner.hidden = false; }, 800);
-
-  document.getElementById('cookieAccept').addEventListener('click', () => saveChoice(true));
-  document.getElementById('cookieReject').addEventListener('click', () => saveChoice(false));
 })();
 
 // ── Analytics ────────────────────────────────────

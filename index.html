@@ -33,6 +33,25 @@
     // Cambia esta URL por la URL de tu backend en producción
     window.BACKEND_URL = 'https://cadaquesdivers-reservas.vercel.app';
   </script>
+
+  <!--
+    Consentimiento por defecto (Google Consent Mode v2).
+    Debe ejecutarse ANTES que cualquier otro script: declara que todo está
+    denegado hasta que el usuario acepte. El script de Google Analytics NO se
+    descarga aquí — lo carga enableAnalytics() en js/main.js tras el consentimiento.
+  -->
+  <script>
+    window.GA_MEASUREMENT_ID = 'G-41KN09H1M3';
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      wait_for_update: 500
+    });
+  </script>
 </head>
 <body>
 
@@ -877,6 +896,10 @@
               <label for="mensaje" data-i18n="form.mensaje">Mensaje</label>
               <textarea id="mensaje" name="mensaje" data-i18n="form.mensaje.ph" placeholder="Cuéntanos qué necesitas, fechas, número de personas..." rows="4"></textarea>
             </div>
+            <div class="form-consent">
+              <input type="checkbox" id="privacidad" name="privacidad" required />
+              <label for="privacidad" data-i18n-html data-i18n="form.privacidad">He leído y acepto la <a href="legal.html#privacidad" target="_blank" rel="noopener">Política de Privacidad</a>. Tus datos se envían por WhatsApp para responder a tu consulta.</label>
+            </div>
             <button type="submit" class="btn btn-primary btn-full">
               <i class="fas fa-paper-plane"></i>
               <span data-i18n="form.submit">Enviar mensaje</span>
@@ -935,6 +958,7 @@
             <li><a href="legal.html#aviso-legal">Aviso Legal</a></li>
             <li><a href="legal.html#privacidad">Privacidad</a></li>
             <li><a href="legal.html#cookies">Cookies</a></li>
+            <li><a href="#" data-cookie-settings data-i18n="footer.cookie_settings">Gestionar cookies</a></li>
           </ul>
         </div>
 
@@ -1015,20 +1039,5 @@
   <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 
-  <!-- Google Analytics (carga solo con consentimiento) -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', {
-      analytics_storage: 'denied',
-      ad_storage: 'denied',
-      wait_for_update: 500
-    });
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-41KN09H1M3"></script>
-  <script>
-    gtag('js', new Date());
-    gtag('config', 'G-41KN09H1M3');
-  </script>
 </body>
 </html>
