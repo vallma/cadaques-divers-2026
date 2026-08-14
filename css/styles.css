@@ -1596,6 +1596,16 @@ input, textarea, select {
   min-height: 100px;
 }
 
+/* Sustituyen a atributos style= inline, prohibidos por la CSP */
+.section-relative {
+  position: relative;
+}
+
+.footer-logo-img {
+  height: 36px;
+  margin-bottom: 0.5rem;
+}
+
 /* Consentimiento RGPD — fuera de .form-group para no heredar el input full-width */
 .form-consent {
   display: flex;
